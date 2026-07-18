@@ -15,6 +15,8 @@ body::before{
   :root{
     --bg:#161219;--card:#211c26;--text:#f5f1f6;--sub:#a297a9;
     --line:rgba(255,255,255,.08);--result-bg:#2d1f2a;--result-line:#4a3244;--input-bg:#292330;
+    --rainbow:linear-gradient(90deg,#ff85c2,#c9a4ff 35%,#93c8ff 70%,#7bf0da);
+    --rainbow-btn:linear-gradient(135deg,#ff6eb4,#b18cff 55%,#7fbcff);
     --shadow:0 2px 6px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);
   }
 }
@@ -96,7 +98,14 @@ section.info li{margin-bottom:6px}
     radial-gradient(32% 36% at 25% 84%, #ffe9d2 0%, transparent 70%);
   animation:aurora 12s ease-in-out infinite alternate;
 }
-@media(prefers-color-scheme:dark){.hero::before{opacity:.3}}
+@media(prefers-color-scheme:dark){
+  .hero::before{opacity:.5;filter:blur(58px);background:
+    radial-gradient(42% 46% at 15% 30%, #7a2f55 0%, transparent 70%),
+    radial-gradient(38% 42% at 50% 12%, #4d3a80 0%, transparent 70%),
+    radial-gradient(36% 40% at 85% 28%, #2c4a75 0%, transparent 70%),
+    radial-gradient(34% 38% at 72% 80%, #1f5c50 0%, transparent 70%),
+    radial-gradient(32% 36% at 25% 84%, #6b4a2a 0%, transparent 70%)}
+}
 @keyframes aurora{from{transform:translateY(0) scale(1)}to{transform:translateY(14px) scale(1.06)}}
 .hero .badge{
   display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--accent);
