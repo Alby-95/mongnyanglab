@@ -178,3 +178,13 @@ footer.site a{color:var(--sub);text-decoration:none}
   border-radius:14px;box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;
 }
 .page-nav .pnav-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(60,30,70,.1);border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
+
+/* 강아지↔고양이 짝 이동 링크 */
+.cross-species{
+  display:block;margin:22px 0 0;padding:14px 18px;text-align:center;
+  font-size:15px;font-weight:700;text-decoration:none;color:var(--accent-dark);
+  background:color-mix(in srgb,var(--accent) 8%,var(--card));
+  border:1.5px solid color-mix(in srgb,var(--accent) 25%,transparent);
+  border-radius:14px;transition:transform .15s,background .15s;
+}
+.cross-species:hover{transform:translateY(-2px);background:color-mix(in srgb,var(--accent) 14%,var(--card))}

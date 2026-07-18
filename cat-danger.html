@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고양이 위험 음식·식물 체커 — 우리 냥이가 먹었을 때 응급도 확인</title>
+<meta name="description" content="고양이가 백합, 양파, 초콜릿, 자일리톨 등을 먹었나요? 무엇을 먹었는지 고르면 위험 수준과 대처법을 바로 알려드립니다. 백합은 고양이에게 가장 치명적입니다.">
+<link rel="canonical" href="https://mongnyanglab.com/cat-danger.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="고양이 위험 음식·식물 체커 — 응급도 확인">
+<meta property="og:description" content="고양이가 위험한 것을 먹었나요? 무엇을 먹었는지 고르면 위험 수준과 대처법을 바로 알려드립니다.">
+<meta property="og:url" content="https://mongnyanglab.com/cat-danger.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png">
+<meta property="og:site_name" content="몽냥랩">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4Z2WC2N085');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"고양이한테 제일 위험한 게 뭔가요?","acceptedAnswer":{"@type":"Answer","text":"백합(나리)류입니다. 꽃, 잎, 꽃가루는 물론 꽃병 물만 핥아도 급성 신부전으로 사망할 수 있어 집에 두지 않는 것이 안전합니다."}},{"@type":"Question","name":"증상이 없으면 괜찮은 건가요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 백합·양파·포도 중독은 신장 손상이 늦게 나타나기 때문에, 먹은 것이 확인되면 증상 유무와 무관하게 즉시 동물병원에 연락해야 합니다."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">계산기</a><a href="guide.html">펫 상식</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>고양이 위험 음식·식물 체커</h1>
+  <p class="lead">우리 냥이가 뭔가 먹었나요? 무엇인지 고르면 위험도와 대처법을 바로 알려드려요.</p>
+  <div class="card">
+    <div class="field"><label>고양이가 먹은/접촉한 것</label>
+      <select id="item">
+        <option value="">— 선택하세요 —</option>
+        <option value="lily">백합·나리류 (꽃/잎/꽃가루/꽃병 물)</option>
+        <option value="onion">양파·마늘·파·부추</option>
+        <option value="xylitol">자일리톨 (무설탕 껌·사탕)</option>
+        <option value="grape">포도·건포도</option>
+        <option value="chocolate">초콜릿·카카오</option>
+        <option value="caffeine">커피·에너지음료</option>
+        <option value="alcohol">알코올 (술·발효반죽)</option>
+        <option value="rawfish">생선회·날생선 다량</option>
+        <option value="milk">우유·유제품</option>
+        <option value="dogfood">강아지 사료 (지속 급여)</option>
+      </select>
+    </div>
+    <button class="calc" onclick="run()">위험도 확인</button>
+    <div class="result" id="res">
+      <div>위험 수준 <span class="big" id="level"></span></div>
+      <p id="why" style="margin-top:12px;font-size:14px;color:#3a3a3c"></p>
+      <p id="advice" style="margin-top:12px;font-size:14px;font-weight:700"></p>
+    </div>
+  </div>
+  <a href="chocolate.html" class="cross-species">🐶 강아지 초콜릿 위험도 계산기 보러가기 →</a>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info coupang-rec">
+    <h2>🛒 쿠팡 반려동물 베스트</h2>
+    <div class="coupang-banner">
+      <script src="https://ads-partners.coupang.com/g.js"></script>
+      <script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script>
+    </div>
+    <p class="coupang-notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+  </section>
+  <section class="info">
+    <h2>고양이에게 특히 위험한 것들</h2>
+    <p><b>백합(나리)</b>은 고양이에게 가장 치명적입니다. 꽃가루가 털에 묻어 그루밍하다 삼키거나, 꽃병 물만 핥아도 급성 신부전을 일으킬 수 있어요. 고양이가 있는 집에는 백합류를 아예 두지 않는 것이 원칙입니다.</p>
+    <p><b>양파·마늘·포도·자일리톨·알코올</b>은 소량도 응급 상황이 될 수 있습니다. 이런 것을 먹은 게 확인되면, 증상이 없어도 즉시 동물병원에 연락하세요. 신장·간 손상은 겉으로 늦게 드러나기 때문입니다.</p>
+    <h2>먹은 걸 발견했다면</h2>
+    <ul>
+      <li>무엇을, 얼마나 먹었는지 최대한 파악하세요 (포장지·남은 양 확인)</li>
+      <li>억지로 토하게 하지 마세요 — 병원에서 안전하게 처치합니다</li>
+      <li>야간이면 24시 동물병원을 미리 검색해 두세요</li>
+      <li>증상(구토, 무기력, 침 흘림, 호흡곤란)이 없어도 안심하지 말고 연락</li>
+    </ul>
+  </section>
+  <div class="page-nav">
+    <a href="index.html" class="pnav-btn">🧮 다른 계산기 보기</a>
+    <a href="guide.html" class="pnav-btn">💡 펫 상식 보기</a>
+  </div>
+  <p class="disclaimer">본 체커는 참고용이며 진단을 대신하지 않습니다. 위험 물질 섭취가 확인되면 동물병원 연락을 최우선으로 하세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a> · <a href="guide.html">펫 상식</a> · <a href="privacy.html">개인정보처리방침</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const key = document.getElementById('item').value;
+  if(!key) return;
+  const h = CAT_HAZARDS[key];
+  const el = document.getElementById('level');
+  let txt, color, advice;
+  if(h.level>=4){ txt='매우 위험 — 즉시 병원'; color='#c40000'; advice='지금 바로 동물병원(야간이면 24시 병원)에 연락하거나 이동하세요. 소량도 응급일 수 있습니다.'; }
+  else if(h.level===3){ txt='위험 — 병원 문의'; color='#d63a00'; advice='동물병원에 전화해 먹은 양을 알리고 지시를 받으세요.'; }
+  else if(h.level===2){ txt='주의'; color='#b25000'; advice='소량 1회는 대개 괜찮지만, 지속·다량이면 문제가 됩니다. 이상 증상이 보이면 병원에 문의하세요.'; }
+  else { txt='경미'; color='#1a7f37'; advice='치명적이진 않지만 피하는 게 좋습니다. 설사·구토가 계속되면 병원에 문의하세요.'; }
+  el.textContent = txt; el.style.color = color;
+  document.getElementById('why').textContent = h.why;
+  const ad = document.getElementById('advice');
+  ad.textContent = advice; ad.style.color = color;
+  show('res');
+}
+</script>
+</body>
+</html>

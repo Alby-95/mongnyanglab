@@ -47,3 +47,17 @@ const CAT_VACCINES = [
 
 function addWeeks(date, w){ const d = new Date(date); d.setDate(d.getDate() + w*7); return d; }
 function kdate(d){ return d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0'); }
+
+// ── 고양이 위험 음식·식물 데이터 (수의학 문헌 기반, 참고용) ──
+const CAT_HAZARDS = {
+  lily:      {name:'백합·나리류(꽃/잎/꽃가루/물)', level:4, why:'고양이에게 가장 치명적. 꽃가루나 꽃병 물만 핥아도 급성 신부전으로 사망할 수 있습니다.'},
+  onion:     {name:'양파·마늘·파·부추', level:4, why:'적혈구를 파괴해 용혈성 빈혈을 일으킵니다. 익힌 것, 가루, 국물도 위험.'},
+  xylitol:   {name:'자일리톨(무설탕 껌·사탕)', level:4, why:'소량도 급성 저혈당·간 손상을 유발할 수 있는 응급 상황.'},
+  grape:     {name:'포도·건포도', level:4, why:'급성 신부전 위험. 양과 무관하게 위험할 수 있습니다.'},
+  chocolate: {name:'초콜릿·카카오', level:3, why:'테오브로민 중독. 고양이는 단맛을 못 느껴 잘 안 먹지만, 먹으면 위험합니다.'},
+  caffeine:  {name:'커피·에너지음료(카페인)', level:3, why:'심장 박동 이상, 떨림, 발작을 유발할 수 있습니다.'},
+  alcohol:   {name:'알코올(술·발효반죽)', level:4, why:'소량도 치명적. 구토, 호흡곤란, 혼수로 이어질 수 있습니다.'},
+  rawfish:   {name:'생선회·날생선 다량', level:2, why:'날생선의 티아미나아제가 비타민 B1을 파괴해, 지속 급여 시 신경 문제를 일으킬 수 있습니다.'},
+  milk:      {name:'우유·유제품', level:1, why:'대부분 유당불내증이라 설사·구토. 치명적이진 않지만 피하는 게 좋아요.'},
+  dogfood:   {name:'강아지 사료(지속 급여)', level:2, why:'고양이 필수 영양소(타우린)가 부족해, 오래 먹으면 심장·시력 문제가 생깁니다.'},
+};
