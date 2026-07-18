@@ -2,8 +2,14 @@
   --bg:#fdfbfd;--card:#ffffff;--text:#231f26;--sub:#847b8a;
   --accent:#f261a8;--accent2:#9d7bf5;--accent3:#6ecfc3;--accent-dark:#d94590;--line:rgba(40,20,50,.07);
   --good:#1a7f37;--result-bg:#fdf1f8;--result-line:#f5d3e7;--input-bg:#faf8fb;
+  --rainbow:linear-gradient(90deg,#ff5ea8,#b07bf5 35%,#6fb1ff 70%,#4fd4c0);
+  --rainbow-btn:linear-gradient(135deg,#ff5ea8,#9d7bf5 55%,#6fb1ff);
   --shadow:0 2px 6px rgba(60,30,70,.05),0 12px 32px rgba(60,30,70,.07);
   --radius:22px;
+}
+body::before{
+  content:'';position:fixed;top:0;left:0;right:0;height:5px;z-index:100;
+  background:var(--rainbow);
 }
 @media(prefers-color-scheme:dark){
   :root{
@@ -27,8 +33,8 @@ header.site{
 }
 header.site .wrap{padding:0 22px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:17.5px;letter-spacing:-.4px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:8px}
-.logo .paw{width:29px;height:29px;border-radius:9px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 4px 10px rgba(242,97,168,.32)}
-.logo span.brand{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo .paw{width:29px;height:29px;border-radius:9px;background:var(--rainbow-btn);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 4px 10px rgba(242,97,168,.32)}
+.logo span.brand{background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
 nav.top{display:flex;gap:2px}
 nav.top a{font-size:13px;font-weight:600;color:var(--sub);text-decoration:none;padding:7px 11px;border-radius:999px;transition:.15s}
 nav.top a:hover{color:var(--text);background:var(--line)}
@@ -51,18 +57,18 @@ h1{font-size:clamp(26px,5vw,32px);letter-spacing:-.8px;font-weight:800;margin:46
 .check input{width:18px;height:18px;accent-color:var(--accent)}
 button.calc{
   width:100%;padding:15px;font-size:16px;font-weight:700;color:#fff;letter-spacing:-.2px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  border:none;border-radius:14px;cursor:pointer;transition:transform .15s,box-shadow .15s;
-  box-shadow:0 6px 16px rgba(242,97,168,.28);
+  background:var(--rainbow-btn);background-size:150% 150%;
+  border:none;border-radius:14px;cursor:pointer;transition:transform .15s,box-shadow .15s,background-position .3s;
+  box-shadow:0 6px 16px rgba(177,123,245,.32);
 }
+button.calc:hover{background-position:100% 50%}
 button.calc:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(242,97,168,.38)}
 button.calc:active{transform:translateY(0)}
 /* 결과 */
 .result{display:none;margin-top:20px;padding:22px;background:var(--result-bg);border-radius:16px}
 .result.show{display:block;animation:fade .3s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.result .big{font-size:29px;font-weight:800;letter-spacing:-.6px;color:var(--accent-dark)}
-@media(prefers-color-scheme:dark){.result .big{color:var(--accent2)}}
+.result .big{font-size:29px;font-weight:800;letter-spacing:-.6px;background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
 .result table{width:100%;margin-top:14px;border-collapse:collapse;font-size:14px}
 .result td{padding:8px 0;border-bottom:1px solid var(--result-line)}
 .result td:last-child{text-align:right;font-weight:700}
@@ -81,15 +87,16 @@ section.info li{margin-bottom:6px}
 /* 인덱스: 히어로 (파스텔 오로라) */
 .hero{position:relative;padding:64px 0 26px;text-align:center;overflow:hidden}
 .hero::before{
-  content:'';position:absolute;inset:-40px -60px;z-index:-1;filter:blur(46px);opacity:.55;
+  content:'';position:absolute;inset:-60px -80px;z-index:-1;filter:blur(52px);opacity:.85;
   background:
-    radial-gradient(38% 42% at 18% 28%, #ffd6ec 0%, transparent 70%),
-    radial-gradient(34% 38% at 82% 22%, #ddd3ff 0%, transparent 70%),
-    radial-gradient(30% 34% at 70% 78%, #d2f4ee 0%, transparent 70%),
-    radial-gradient(30% 34% at 28% 82%, #ffe9d2 0%, transparent 70%);
+    radial-gradient(42% 46% at 15% 30%, #ffd0ea 0%, transparent 70%),
+    radial-gradient(38% 42% at 50% 12%, #e2d5ff 0%, transparent 70%),
+    radial-gradient(36% 40% at 85% 28%, #cfe4ff 0%, transparent 70%),
+    radial-gradient(34% 38% at 72% 80%, #ccf3ea 0%, transparent 70%),
+    radial-gradient(32% 36% at 25% 84%, #ffe9d2 0%, transparent 70%);
   animation:aurora 12s ease-in-out infinite alternate;
 }
-@media(prefers-color-scheme:dark){.hero::before{opacity:.22}}
+@media(prefers-color-scheme:dark){.hero::before{opacity:.3}}
 @keyframes aurora{from{transform:translateY(0) scale(1)}to{transform:translateY(14px) scale(1.06)}}
 .hero .badge{
   display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--accent);
@@ -98,7 +105,7 @@ section.info li{margin-bottom:6px}
   padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:-.2px;
 }
 .hero h1{font-size:clamp(30px,6vw,44px);margin:0;letter-spacing:-1.2px}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{font-style:normal;background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{color:var(--sub);font-size:16.5px;margin:16px auto 0;max-width:460px}
 .paws{position:absolute;inset:0;pointer-events:none}
 .paws span{position:absolute;font-size:21px;opacity:.22;animation:float 7s ease-in-out infinite}
@@ -125,8 +132,10 @@ section.info li{margin-bottom:6px}
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 20px 20px;
   text-decoration:none;color:var(--text);box-shadow:var(--shadow);
   transition:transform .2s cubic-bezier(.2,.7,.3,1.2),box-shadow .2s;
-  animation:rise .5s ease backwards;
+  animation:rise .5s ease backwards;position:relative;overflow:hidden;
 }
+.tool::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--rainbow);opacity:0;transition:opacity .2s}
+.tool:hover::before{opacity:1}
 .tool:nth-child(1){animation-delay:.03s}.tool:nth-child(2){animation-delay:.07s}.tool:nth-child(3){animation-delay:.11s}
 .tool:nth-child(4){animation-delay:.15s}.tool:nth-child(5){animation-delay:.19s}.tool:nth-child(6){animation-delay:.23s}
 .tool:nth-child(7){animation-delay:.27s}.tool:nth-child(8){animation-delay:.31s}.tool:nth-child(9){animation-delay:.35s}
