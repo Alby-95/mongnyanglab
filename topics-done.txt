@@ -1,0 +1,16 @@
+# 몽냥랩 이미 다룬 가이드 주제 목록 (자동화가 중복 방지에 사용)
+# 형식: 슬러그 | 종류(dog/cat/pet) | 주제 요약
+# 자동 글쓰기는 이 목록에 없는 주제만 작성하고, 작성 후 이 목록에 한 줄을 추가한다.
+
+guide-dog-watermelon | dog | 강아지 수박
+guide-dog-grapes | dog | 강아지 포도(위험)
+guide-dog-sweetpotato | dog | 강아지 고구마
+guide-dog-banana | dog | 강아지 바나나
+guide-dog-egg | dog | 강아지 계란
+guide-dog-summer-walk | dog | 여름 강아지 산책/아스팔트 화상
+guide-cat-water | cat | 고양이 음수량 늘리기
+guide-cat-tuna | cat | 고양이 참치캔
+guide-cat-milk | cat | 고양이 우유/유당불내증
+guide-cat-kneading | cat | 고양이 꾹꾹이
+guide-cat-hairball | cat | 고양이 헤어볼
+guide-cat-scratcher | cat | 고양이 스크래처 고르기
