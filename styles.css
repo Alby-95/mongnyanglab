@@ -13,8 +13,8 @@ body::before{
 }
 @media(prefers-color-scheme:dark){
   :root{
-    --bg:#161219;--card:#211c26;--text:#f5f1f6;--sub:#a297a9;
-    --line:rgba(255,255,255,.08);--result-bg:#2d1f2a;--result-line:#4a3244;--input-bg:#292330;
+    --bg:#1c1730;--card:#262040;--text:#f5f1f6;--sub:#aca2bd;
+    --line:rgba(255,255,255,.1);--result-bg:#332648;--result-line:#4d3a63;--input-bg:#2e2749;
     --rainbow:linear-gradient(90deg,#ff85c2,#c9a4ff 35%,#93c8ff 70%,#7bf0da);
     --rainbow-btn:linear-gradient(135deg,#ff6eb4,#b18cff 55%,#7fbcff);
     --shadow:0 2px 6px rgba(0,0,0,.4),0 12px 32px rgba(0,0,0,.35);
@@ -23,14 +23,18 @@ body::before{
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;
+  background:linear-gradient(165deg,#fff0f7 0%,#f5efff 32%,#ecf5ff 62%,#eafaf3 100%) fixed;
+  color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;
+}
+@media(prefers-color-scheme:dark){
+  body{background:linear-gradient(165deg,#2a1631 0%,#1e1836 34%,#152238 66%,#132a26 100%) fixed}
 }
 .wrap{max-width:760px;margin:0 auto;padding:0 22px 90px}
 /* 헤더 */
 header.site{
   position:sticky;top:0;z-index:50;padding:13px 0;
-  background:color-mix(in srgb, var(--bg) 72%, transparent);
-  backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);
+  background:color-mix(in srgb, var(--card) 55%, transparent);
+  backdrop-filter:blur(22px) saturate(1.7);-webkit-backdrop-filter:blur(22px) saturate(1.7);
   border-bottom:1px solid var(--line);
 }
 header.site .wrap{padding:0 22px;display:flex;align-items:center;justify-content:space-between}
@@ -145,6 +149,13 @@ section.info li{margin-bottom:6px}
 }
 .tool::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--rainbow);opacity:0;transition:opacity .2s}
 .tool:hover::before{opacity:1}
+/* 카드마다 파스텔 무지개 순환 틴트 */
+.tools .tool:nth-child(6n+1){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ff5ea8 9%,var(--card)))}
+.tools .tool:nth-child(6n+2){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#b07bf5 9%,var(--card)))}
+.tools .tool:nth-child(6n+3){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#6fb1ff 10%,var(--card)))}
+.tools .tool:nth-child(6n+4){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#4fd4c0 10%,var(--card)))}
+.tools .tool:nth-child(6n+5){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ffb054 9%,var(--card)))}
+.tools .tool:nth-child(6n+6){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ff7d94 9%,var(--card)))}
 .tool:nth-child(1){animation-delay:.03s}.tool:nth-child(2){animation-delay:.07s}.tool:nth-child(3){animation-delay:.11s}
 .tool:nth-child(4){animation-delay:.15s}.tool:nth-child(5){animation-delay:.19s}.tool:nth-child(6){animation-delay:.23s}
 .tool:nth-child(7){animation-delay:.27s}.tool:nth-child(8){animation-delay:.31s}.tool:nth-child(9){animation-delay:.35s}
