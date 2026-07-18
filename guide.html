@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>몽냥 가이드 — 강아지·고양이 돌봄 정보</title>
-<meta name="description" content="강아지·고양이 먹어도 되는 음식, 건강 신호, 계절별 관리법까지 — 보호자에게 필요한 정보를 쉽게 정리한 몽냥랩 가이드입니다.">
+<title>펫 상식 — 강아지·고양이 돌봄 정보 모음</title>
+<meta name="description" content="강아지·고양이 먹어도 되는 음식, 건강 신호, 계절별 관리법까지 — 보호자에게 필요한 펫 상식을 쉽게 정리했습니다.">
 <link rel="canonical" href="https://mongnyanglab.com/guide.html">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -13,10 +13,10 @@
 <body>
 <header class="site"><div class="wrap">
   <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
-  <nav class="top"><a href="index.html">계산기</a><a href="guide.html">가이드</a></nav>
+  <nav class="top"><a href="index.html">계산기</a><a href="guide.html">펫 상식</a></nav>
 </div></header>
 <div class="wrap">
-  <h1>몽냥 가이드</h1>
+  <h1>펫 상식</h1>
   <p class="lead">계산기로 다 담지 못한 이야기들 — 먹어도 되는 음식, 건강 신호, 돌봄 팁을 정리합니다.</p>
   <div class="hot" style="justify-content:flex-start;margin:0 0 18px">
     <a href="#" onclick="filterGuides('all');return false" id="tab-all" style="border-color:#f261a8">전체</a>
@@ -39,27 +39,54 @@
     <a class="tool" href="guide-dog-watermelon.html"><div class="t">강아지 수박 먹어도 되나요? 급여량과 주의사항</div><div class="d">결론은 OK — 단 씨와 껍질은 빼고, 체중별 적정량 지키기</div><span class="go">읽기 →</span></a>
   </div>
   <p id="noResult" style="display:none;color:#847b8a;font-size:14px;padding:20px 0">이 카테고리의 글이 곧 추가될 예정이에요.</p>
+  <button id="moreBtn" onclick="showMore()" style="display:none;width:100%;padding:14px;margin-top:14px;font-size:15px;font-weight:700;color:#f261a8;background:transparent;border:1.5px solid #f5d3e7;border-radius:14px;cursor:pointer">더 보기 +</button>
   <div class="ad-slot">광고 영역</div>
   <p class="disclaimer">가이드는 계속 추가됩니다. 모든 콘텐츠는 참고용이며 수의학적 진단을 대신하지 않습니다.</p>
   <footer class="site"><a href="index.html">몽냥랩</a> · <a href="about.html">소개</a> · <a href="privacy.html">개인정보처리방침</a></footer>
 </div>
 <script>
+var PAGE_SIZE = 9;
+var curCat = 'all';
+var curLimit = PAGE_SIZE;
+
+function matches(card, cat){
+  var href = card.getAttribute('href') || '';
+  var isDog = href.indexOf('dog') !== -1 || href.indexOf('pet') !== -1;
+  var isCat = href.indexOf('cat') !== -1 || href.indexOf('pet') !== -1;
+  return (cat==='all') || (cat==='dog' && isDog) || (cat==='cat' && isCat);
+}
+
+function render(){
+  var cards = document.querySelectorAll('#guideList .tool');
+  var shown = 0, total = 0;
+  cards.forEach(function(card){
+    if(matches(card, curCat)){
+      total++;
+      card.style.display = (shown < curLimit) ? '' : 'none';
+      if(shown < curLimit) shown++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('noResult').style.display = total ? 'none' : 'block';
+  document.getElementById('moreBtn').style.display = (total > curLimit) ? '' : 'none';
+}
+
 function filterGuides(cat){
+  curCat = cat;
+  curLimit = PAGE_SIZE;
   ['all','dog','cat'].forEach(function(c){
     document.getElementById('tab-'+c).style.borderColor = (c===cat) ? '#f261a8' : '';
   });
-  var cards = document.querySelectorAll('#guideList .tool');
-  var visible = 0;
-  cards.forEach(function(card){
-    var href = card.getAttribute('href') || '';
-    var isDog = href.indexOf('dog') !== -1 || href.indexOf('pet') !== -1;
-    var isCat = href.indexOf('cat') !== -1 || href.indexOf('pet') !== -1;
-    var show = (cat==='all') || (cat==='dog' && isDog) || (cat==='cat' && isCat);
-    card.style.display = show ? '' : 'none';
-    if(show) visible++;
-  });
-  document.getElementById('noResult').style.display = visible ? 'none' : 'block';
+  render();
 }
+
+function showMore(){
+  curLimit += PAGE_SIZE;
+  render();
+}
+
+render();
 </script>
 </body>
 </html>
