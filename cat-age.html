@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고양이 나이 계산기 — 사람 나이로 환산</title>
+<meta name="description" content="우리 고양이는 사람 나이로 몇 살? 생후 1년=15살, 2년=24살, 이후 1년마다 4살. 수의학 표준 환산 기준으로 바로 계산하세요.">
+<link rel="canonical" href="https://mongnyanglab.com/cat-age.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="dog-age.html">강아지 나이</a><a href="cat-food.html">사료량</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>고양이 나이 계산기</h1>
+  <p class="lead">고양이는 첫 2년 동안 사람의 24년치를 살아요. 우리 냥이의 진짜 나이를 확인해 보세요.</p>
+  <div class="card">
+    <div class="field"><label>고양이 나이 (년)</label><input id="years" type="text" inputmode="decimal" placeholder="예: 5 (6개월이면 0.5)"></div>
+    <button class="calc" onclick="run()">계산하기</button>
+    <div class="result" id="res">
+      <div>사람 나이로 <span class="big" id="human"></span></div>
+      <p id="stage" style="margin-top:10px;font-size:14px;color:#6e6e73"></p>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>고양이 나이 환산법</h2>
+    <p>생후 1년이면 사람의 15살, 2년이면 24살입니다. 이후로는 1년마다 사람 나이 4살씩 더해집니다. 예를 들어 5살 고양이는 24 + 4×3 = 36살입니다. 실내 생활을 하는 고양이는 평균 15년 안팎, 길게는 20년 이상 살기도 합니다.</p>
+    <h2>노령묘 관리 시기</h2>
+    <p>11살(사람 나이 약 60살)부터는 노령묘로 분류됩니다. 신장 질환과 갑상선 질환이 급증하는 시기라, 1년에 1~2회 혈액검사를 포함한 건강검진이 권장됩니다.</p>
+  </section>
+  <section class="faq">
+    <details><summary>고양이도 크기에 따라 다르게 계산하나요?</summary><p>강아지와 달리 고양이는 품종·크기별 수명 차이가 크지 않아 동일한 환산표를 사용합니다.</p></details>
+    <details><summary>우리 고양이가 몇 살인지 모르겠어요.</summary><p>보호소나 길에서 온 고양이는 치아 상태와 눈, 털로 수의사가 추정할 수 있습니다. 건강검진 시 함께 문의해 보세요.</p></details>
+  </section>
+  <p class="disclaimer">본 계산 결과는 일반적인 환산표 기준 참고용입니다.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const y = num('years'); if(!y) return;
+  const h = catAge(y);
+  document.getElementById('human').textContent = '약 ' + fmt(h) + '살';
+  const stage = h < 15 ? '한창 성장 중인 아기 냥이예요.' : h < 30 ? '에너지 넘치는 청년기예요.' : h < 60 ? '느긋한 중년기입니다.' : '신장·치아 관리가 중요한 노령기입니다. 정기 검진을 챙겨주세요.';
+  document.getElementById('stage').textContent = stage;
+  show('res');
+}
+</script>
+</body>
+</html>

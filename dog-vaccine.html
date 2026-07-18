@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강아지 예방접종 일정 계산기 — 생일 입력하면 접종 날짜가 딱</title>
+<meta name="description" content="강아지 생년월일만 입력하면 종합백신(DHPPL) 1~5차, 코로나, 켄넬코프, 광견병까지 접종 날짜를 자동 계산합니다. 표준 6회 프로그램 기준.">
+<link rel="canonical" href="https://mongnyanglab.com/dog-vaccine.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="cat-vaccine.html">고양이 접종</a><a href="dog-food.html">사료량</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>강아지 예방접종 일정 계산기</h1>
+  <p class="lead">생일만 입력하면 접종 스케줄이 날짜로 나옵니다. 캘린더에 바로 옮겨 적으세요.</p>
+  <div class="card">
+    <div class="field"><label>강아지 생년월일</label><input id="birth" type="date"></div>
+    <button class="calc" onclick="run()">일정 계산하기</button>
+    <div class="result" id="res">
+      <table id="schedule"></table>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>표준 접종 프로그램 (6회)</h2>
+    <ul>
+      <li>생후 6주: 종합백신(DHPPL) 1차 + 코로나 장염 1차</li>
+      <li>생후 8주: 종합백신 2차 + 코로나 장염 2차</li>
+      <li>생후 10주: 종합백신 3차 + 켄넬코프 1차</li>
+      <li>생후 12주: 종합백신 4차 + 켄넬코프 2차</li>
+      <li>생후 14주: 종합백신 5차 + 인플루엔자 1차</li>
+      <li>생후 16주: 인플루엔자 2차 + 광견병</li>
+    </ul>
+    <p>접종 완료 후 항체가 검사로 면역 형성을 확인하고, 이후 매년 추가 접종(부스터)을 진행합니다. 심장사상충과 외부기생충 예방은 접종과 별개로 매달 해주세요.</p>
+  </section>
+  <section class="faq">
+    <details><summary>접종 시기를 놓쳤어요. 처음부터 다시 해야 하나요?</summary><p>1~2주 늦어진 정도라면 이어서 진행하는 경우가 많지만, 간격이 많이 벌어졌다면 수의사 판단에 따라 일부 차수를 다시 맞을 수 있습니다. 병원에 접종 수첩을 가지고 문의하세요.</p></details>
+    <details><summary>접종 전후 주의할 점은?</summary><p>접종 당일과 다음날은 목욕과 격한 산책을 피하고, 구토·얼굴 부음·무기력이 심하면 즉시 병원에 연락하세요. 접종이 다 끝나기 전에는 낯선 개와의 접촉을 피하는 것이 안전합니다.</p></details>
+  </section>
+  <p class="disclaimer">병원과 지역에 따라 프로그램이 다를 수 있습니다. 실제 접종은 담당 수의사의 일정을 따르세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const b = document.getElementById('birth').value; if(!b) return;
+  const birth = new Date(b);
+  const today = new Date(); today.setHours(0,0,0,0);
+  let html = '';
+  DOG_VACCINES.forEach(v => {
+    const d = addWeeks(birth, v.week);
+    const done = d < today;
+    html += '<tr><td>' + v.name + '</td><td style="' + (done ? 'color:#8e8e93' : 'color:#e5551f') + '">' + kdate(d) + (done ? ' (지남)' : '') + '</td></tr>';
+  });
+  document.getElementById('schedule').innerHTML = html;
+  show('res');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강아지 초콜릿 먹었을 때 위험도 계산기 — 응급 여부 즉시 확인</title>
+<meta name="description" content="강아지가 초콜릿을 먹었나요? 체중과 초콜릿 종류·양을 입력하면 테오브로민 섭취량 기준 위험 수준을 즉시 확인할 수 있습니다.">
+<link rel="canonical" href="https://mongnyanglab.com/chocolate.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="dog-food.html">사료량</a><a href="water.html">물 섭취량</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>초콜릿 먹었을 때 위험도 계산기</h1>
+  <p class="lead">당황하지 말고 30초. 체중과 먹은 양을 입력하면 위험 수준이 나옵니다.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>강아지 체중 (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="예: 5"></div>
+      <div class="field"><label>초콜릿 종류</label>
+        <select id="type">
+          <option value="milk" selected>밀크 초콜릿</option>
+          <option value="dark">다크 초콜릿</option>
+          <option value="baking">베이킹/카카오 초콜릿</option>
+          <option value="white">화이트 초콜릿</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>먹은 양 (g)</label><input id="amount" type="text" inputmode="numeric" placeholder="예: 30 (판초콜릿 1줄 ≈ 10g)"></div>
+    <button class="calc" onclick="run()">위험도 확인</button>
+    <div class="result" id="res">
+      <div>위험 수준 <span class="big" id="level"></span></div>
+      <table>
+        <tr><td>테오브로민 섭취 추정</td><td id="dose"></td></tr>
+      </table>
+      <p id="advice" style="margin-top:12px;font-size:14px;font-weight:600"></p>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>왜 초콜릿이 위험한가요?</h2>
+    <p>초콜릿의 테오브로민 성분을 강아지는 사람보다 훨씬 느리게 분해합니다. 체중 1kg당 20mg부터 구토·설사 같은 경미한 증상, 40mg 이상이면 심장 이상, 60mg 이상이면 발작 등 심각한 중독 증상이 나타날 수 있습니다. 카카오 함량이 높을수록(다크·베이킹) 훨씬 위험합니다.</p>
+    <h2>먹은 걸 발견했다면</h2>
+    <ul>
+      <li>포장지로 종류와 먹은 양을 최대한 확인하세요</li>
+      <li>억지로 토하게 하지 마세요 — 병원에서 안전하게 처치합니다</li>
+      <li>섭취 후 1~2시간 이내가 처치 골든타임입니다</li>
+      <li>증상(구토, 헐떡임, 떨림)이 없어도 6~12시간 후 나타날 수 있습니다</li>
+    </ul>
+  </section>
+  <section class="faq">
+    <details><summary>아주 조금 먹었는데 병원에 가야 하나요?</summary><p>화이트·밀크 초콜릿 소량은 대부분 경과 관찰로 충분하지만, 다크·베이킹 초콜릿은 소량도 위험할 수 있습니다. 계산 결과가 '주의' 이상이면 병원에 전화로라도 문의하세요.</p></details>
+    <details><summary>초콜릿 말고 또 조심할 음식은?</summary><p>포도·건포도(신부전), 자일리톨 껌·사탕(저혈당), 양파·마늘(빈혈), 마카다미아가 대표적입니다. 자일리톨은 소량도 응급 상황입니다.</p></details>
+  </section>
+  <p class="disclaimer">본 계산기는 참고용 추정치이며 진단을 대신하지 않습니다. 섭취가 확인되면 동물병원 연락을 최우선으로 하세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const w = num('weight'), a = num('amount'); if(!w||!a) return;
+  const mg = THEOBROMINE[document.getElementById('type').value] * a;
+  const perKg = mg / w;
+  let level, advice, color;
+  if (perKg < 10){ level='낮음'; color='#1a7f37'; advice='위험 용량 미만입니다. 다만 처음 겪는 일이거나 어린 강아지라면 상태를 지켜보세요.'; }
+  else if (perKg < 20){ level='관찰 필요'; color='#b25000'; advice='경미한 증상이 나타날 수 있는 경계 구간입니다. 6~12시간 동안 구토·헐떡임 여부를 관찰하고, 이상이 보이면 병원에 연락하세요.'; }
+  else if (perKg < 40){ level='주의 — 병원 문의'; color='#d63a00'; advice='구토·설사 등 중독 증상이 나타날 수 있는 수준입니다. 지금 동물병원에 전화해 상황을 알리고 지시를 받으세요.'; }
+  else { level='위험 — 즉시 병원'; color='#c40000'; advice='심장 이상·발작 위험이 있는 수준입니다. 지금 바로 동물병원(야간이면 24시 병원)으로 이동하세요.'; }
+  const el = document.getElementById('level');
+  el.textContent = level; el.style.color = color;
+  document.getElementById('dose').textContent = fmt(mg) + 'mg (체중 1kg당 약 ' + fmt(perKg,1) + 'mg)';
+  document.getElementById('advice').textContent = advice;
+  document.getElementById('advice').style.color = color;
+  show('res');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>강아지 사료 급여량 계산기 — 하루 몇 g이 적당할까?</title>
+<meta name="description" content="체중·나이·중성화 여부로 강아지 하루 사료량을 계산합니다. 수의학 표준 RER/DER 공식 기반, 사료 칼로리 반영해 g 단위로 알려드려요.">
+<link rel="canonical" href="https://mongnyanglab.com/dog-food.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="cat-food.html">고양이 사료량</a><a href="water.html">물 섭취량</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>강아지 사료 급여량 계산기</h1>
+  <p class="lead">사료 봉지의 권장량은 평균일 뿐. 우리 강아지 기준으로 다시 계산해 보세요.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>체중 (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="예: 5"></div>
+      <div class="field"><label>상태</label>
+        <select id="state">
+          <option value="3.0">강아지 (4개월 미만)</option>
+          <option value="2.0">강아지 (4~12개월)</option>
+          <option value="1.6" selected>성견 · 중성화 O</option>
+          <option value="1.8">성견 · 중성화 X</option>
+          <option value="1.4">노령견</option>
+          <option value="1.0">다이어트 중</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>사료 열량 (kcal/100g) — 봉지 뒷면 표기</label><input id="kcal" type="text" inputmode="numeric" value="350"></div>
+    <button class="calc" onclick="run()">계산하기</button>
+    <div class="result" id="res">
+      <div>하루 급여량 <span class="big" id="grams"></span></div>
+      <table>
+        <tr><td>하루 필요 열량 (DER)</td><td id="der"></td></tr>
+        <tr><td>기초 대사량 (RER)</td><td id="rer"></td></tr>
+        <tr><td>2회 나눠 급여 시 1회분</td><td id="half"></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>급여량은 이렇게 계산합니다</h2>
+    <p>수의학에서는 기초 에너지 요구량 RER = 70 × 체중(kg)의 0.75제곱으로 계산하고, 여기에 나이·중성화 여부에 따른 계수(DER 계수)를 곱해 하루 필요 열량을 구합니다. 이 열량을 사료의 칼로리로 나누면 하루 급여량(g)이 나옵니다.</p>
+    <h2>급여량보다 중요한 것</h2>
+    <p>계산값은 출발점입니다. 2주 간격으로 체중과 갈비뼈 만져짐 정도(BCS)를 확인하면서 10% 단위로 조절하세요. 간식을 주는 날은 간식 칼로리만큼 사료를 줄이는 것이 원칙이며, 간식은 하루 열량의 10%를 넘지 않는 것이 좋습니다.</p>
+  </section>
+  <section class="faq">
+    <details><summary>사료 봉지 권장량과 계산 결과가 달라요.</summary><p>봉지 권장량은 활동량 많은 미중성화 성견 기준인 경우가 많아 실제보다 과한 경우가 흔합니다. 중성화한 실내견은 계산기 값이 더 현실에 가깝습니다.</p></details>
+    <details><summary>사료 열량은 어디서 확인하나요?</summary><p>사료 봉지 뒷면의 '대사 에너지(ME)' 표기를 보세요. 보통 100g당 330~400kcal입니다. 표기가 kg당이면 10으로 나눠 입력하세요.</p></details>
+  </section>
+  <p class="disclaimer">본 계산 결과는 참고용이며, 질병이 있거나 임신 중인 경우 수의사와 상담 후 급여량을 정하세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const w = num('weight'), kcal100 = num('kcal'); if(!w||!kcal100) return;
+  const r = rer(w);
+  const der = r * parseFloat(document.getElementById('state').value);
+  const grams = der / kcal100 * 100;
+  document.getElementById('rer').textContent = fmt(r) + ' kcal';
+  document.getElementById('der').textContent = fmt(der) + ' kcal';
+  document.getElementById('grams').textContent = '약 ' + fmt(grams) + 'g';
+  document.getElementById('half').textContent = fmt(grams/2) + 'g씩 2회';
+  show('res');
+}
+</script>
+</body>
+</html>

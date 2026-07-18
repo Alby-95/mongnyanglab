@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고양이 사료 급여량 계산기 — 하루 몇 g이 적당할까?</title>
+<meta name="description" content="체중·중성화 여부·활동성으로 고양이 하루 사료량을 계산합니다. RER/DER 공식 기반, 건사료·습식 칼로리 반영.">
+<link rel="canonical" href="https://mongnyanglab.com/cat-food.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="dog-food.html">강아지 사료량</a><a href="cat-age.html">고양이 나이</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>고양이 사료 급여량 계산기</h1>
+  <p class="lead">비만은 고양이 만병의 근원. 우리 냥이에게 맞는 하루 급여량을 확인하세요.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>체중 (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="예: 4"></div>
+      <div class="field"><label>상태</label>
+        <select id="state">
+          <option value="2.5">아기 고양이 (1살 미만)</option>
+          <option value="1.2" selected>성묘 · 중성화 O</option>
+          <option value="1.4">성묘 · 중성화 X</option>
+          <option value="1.0">실내묘 · 활동량 적음</option>
+          <option value="0.8">다이어트 중</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>사료 열량 (kcal/100g) — 봉지 뒷면 표기</label><input id="kcal" type="text" inputmode="numeric" value="380"></div>
+    <button class="calc" onclick="run()">계산하기</button>
+    <div class="result" id="res">
+      <div>하루 급여량 <span class="big" id="grams"></span></div>
+      <table>
+        <tr><td>하루 필요 열량 (DER)</td><td id="der"></td></tr>
+        <tr><td>기초 대사량 (RER)</td><td id="rer"></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>고양이 급여량 계산 원리</h2>
+    <p>기초 에너지 요구량 RER = 70 × 체중(kg)의 0.75제곱에, 중성화 여부와 활동량에 따른 계수를 곱해 하루 필요 열량을 구합니다. 중성화한 실내묘는 대사량이 낮아, 사료 봉지 권장량대로 주면 살이 찌는 경우가 많습니다.</p>
+    <h2>습식 사료를 함께 준다면</h2>
+    <p>습식 캔(보통 80g당 70~90kcal)을 주는 날은 그만큼 건사료를 줄이세요. 예를 들어 하루 필요 열량이 200kcal이고 캔 하나(80kcal)를 줬다면, 남은 120kcal만큼만 건사료로 채우면 됩니다.</p>
+  </section>
+  <section class="faq">
+    <details><summary>우리 고양이가 비만인지 어떻게 아나요?</summary><p>위에서 봤을 때 허리 라인이 없고, 갈비뼈가 손으로 잘 만져지지 않으면 과체중 신호입니다. 정확한 판정은 동물병원의 신체충실지수(BCS) 평가로 확인하세요.</p></details>
+    <details><summary>자율급식이 나쁜가요?</summary><p>중성화한 실내묘는 자율급식 시 과식하기 쉽습니다. 하루 급여량을 정해 2~4회 나눠 주는 제한급식이 체중 관리에 유리합니다.</p></details>
+  </section>
+  <p class="disclaimer">본 계산 결과는 참고용이며, 질병이 있는 경우 수의사와 상담 후 급여량을 정하세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const w = num('weight'), kcal100 = num('kcal'); if(!w||!kcal100) return;
+  const r = rer(w);
+  const der = r * parseFloat(document.getElementById('state').value);
+  const grams = der / kcal100 * 100;
+  document.getElementById('rer').textContent = fmt(r) + ' kcal';
+  document.getElementById('der').textContent = fmt(der) + ' kcal';
+  document.getElementById('grams').textContent = '약 ' + fmt(grams) + 'g';
+  show('res');
+}
+</script>
+</body>
+</html>

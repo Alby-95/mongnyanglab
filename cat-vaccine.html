@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>고양이 예방접종 일정 계산기 — 종합백신·광견병 날짜 자동 계산</title>
+<meta name="description" content="고양이 생년월일을 입력하면 종합백신(FVRCP) 1~3차, 백혈병, 광견병 접종 날짜를 자동으로 계산합니다.">
+<link rel="canonical" href="https://mongnyanglab.com/cat-vaccine.html">
+<link rel="stylesheet" href="styles.css">
+<!-- ADSENSE: 승인 후 스크립트 삽입 -->
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>몽냥<span class="brand">랩</span></a>
+  <nav class="top"><a href="dog-vaccine.html">강아지 접종</a><a href="cat-food.html">사료량</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>고양이 예방접종 일정 계산기</h1>
+  <p class="lead">생일만 입력하면 우리 냥이의 접종 스케줄이 날짜로 나옵니다.</p>
+  <div class="card">
+    <div class="field"><label>고양이 생년월일</label><input id="birth" type="date"></div>
+    <button class="calc" onclick="run()">일정 계산하기</button>
+    <div class="result" id="res">
+      <table id="schedule"></table>
+    </div>
+  </div>
+  <div class="ad-slot">광고 영역</div>
+  <section class="info">
+    <h2>고양이 기본 접종 프로그램</h2>
+    <ul>
+      <li>생후 8주: 종합백신(FVRCP) 1차 — 범백혈구감소증·허피스·칼리시</li>
+      <li>생후 11주: 종합백신 2차 + 백혈병</li>
+      <li>생후 14주: 종합백신 3차 + 백혈병</li>
+      <li>생후 16주 이후: 광견병</li>
+    </ul>
+    <p>접종 완료 후 항체가 검사로 면역 형성을 확인하는 것이 좋습니다. 실내에서만 생활하는 고양이도 범백혈구감소증(범백) 같은 치명적 질병은 사람 옷이나 물건을 통해 감염될 수 있어 기본 접종은 필요합니다.</p>
+  </section>
+  <section class="faq">
+    <details><summary>실내에서만 키우는데 접종이 꼭 필요한가요?</summary><p>종합백신은 실내묘에게도 권장됩니다. 바이러스는 보호자의 옷·신발을 통해서도 들어올 수 있고, 병원 방문이나 이사 등 외출 상황도 생기기 때문입니다.</p></details>
+    <details><summary>성묘를 입양했는데 접종 이력을 몰라요.</summary><p>항체가 검사로 면역 상태를 확인한 뒤 필요한 접종만 진행할 수 있습니다. 입양 후 첫 검진 때 함께 문의하세요.</p></details>
+  </section>
+  <p class="disclaimer">병원과 백신 종류에 따라 프로그램이 다를 수 있습니다. 실제 접종은 담당 수의사의 일정을 따르세요.</p>
+  <footer class="site"><a href="index.html">← 전체 계산기 보기</a></footer>
+</div>
+<script src="common.js"></script>
+<script>
+function run(){
+  const b = document.getElementById('birth').value; if(!b) return;
+  const birth = new Date(b);
+  const today = new Date(); today.setHours(0,0,0,0);
+  let html = '';
+  CAT_VACCINES.forEach(v => {
+    const d = addWeeks(birth, v.week);
+    const done = d < today;
+    html += '<tr><td>' + v.name + '</td><td style="' + (done ? 'color:#8e8e93' : 'color:#e5551f') + '">' + kdate(d) + (done ? ' (지남)' : '') + '</td></tr>';
+  });
+  document.getElementById('schedule').innerHTML = html;
+  show('res');
+}
+</script>
+</body>
+</html>
