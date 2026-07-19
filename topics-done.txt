@@ -14,3 +14,4 @@ guide-cat-milk | cat | 고양이 우유/유당불내증
 guide-cat-kneading | cat | 고양이 꾹꾹이
 guide-cat-hairball | cat | 고양이 헤어볼
 guide-cat-scratcher | cat | 고양이 스크래처 고르기
+guide-dog-apple | dog | 강아지 사과(씨 제거·급여량)
