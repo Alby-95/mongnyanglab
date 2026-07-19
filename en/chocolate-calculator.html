@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Chocolate Toxicity Calculator — Is It an Emergency?</title>
+<meta name="description" content="Did your dog eat chocolate? Enter weight, chocolate type, and amount to see the toxicity risk based on theobromine dose. Free emergency check.">
+<link rel="canonical" href="https://mongnyanglab.com/en/chocolate-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/chocolate.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/chocolate-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/chocolate-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Dog Chocolate Toxicity Calculator">
+<meta property="og:description" content="Check chocolate poisoning risk by weight, type, and amount eaten.">
+<meta property="og:url" content="https://mongnyanglab.com/en/chocolate-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Chocolate Toxicity Calculator</h1>
+  <p class="lead">Don't panic — take 30 seconds. Enter weight and amount to see the risk.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Dog's weight (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="e.g. 5"></div>
+      <div class="field"><label>Chocolate type</label>
+        <select id="type"><option value="milk" selected>Milk chocolate</option><option value="dark">Dark chocolate</option><option value="baking">Baking / cocoa</option><option value="white">White chocolate</option></select>
+      </div>
+    </div>
+    <div class="field"><label>Amount eaten (grams)</label><input id="amount" type="text" inputmode="numeric" placeholder="e.g. 30"></div>
+    <button class="calc" onclick="run()">Check risk</button>
+    <div class="result" id="res">
+      <div>Risk level <span class="big" id="level"></span></div>
+      <table><tr><td>Estimated theobromine</td><td id="dose"></td></tr></table>
+      <p id="advice" style="margin-top:12px;font-size:14px;font-weight:700"></p>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>Why chocolate is dangerous</h2>
+    <p>Dogs metabolize theobromine much more slowly than humans. From about 20mg per kg of body weight, mild symptoms like vomiting appear; over 40mg/kg risks heart problems; over 60mg/kg can cause seizures. The higher the cocoa content (dark, baking), the more dangerous.</p>
+    <h2>If you found them eating it</h2>
+    <ul>
+      <li>Check the wrapper for type and amount eaten</li>
+      <li>Do NOT force vomiting — let the vet handle it safely</li>
+      <li>The first 1–2 hours are the treatment window</li>
+      <li>Symptoms can appear 6–12 hours later even if none show now</li>
+    </ul>
+  </section>
+  <p class="disclaimer">This is a reference estimate and does not replace diagnosis. If ingestion is confirmed, contact a vet first.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+function run(){
+  const w=num('weight'),a=num('amount');if(!w||!a)return;
+  const mg=THEOBROMINE[document.getElementById('type').value]*a;const perKg=mg/w;
+  let level,advice,color;
+  if(perKg<10){level='Low';color='#1a7f37';advice='Below the toxic dose. Still, watch a young or first-time dog for a while.';}
+  else if(perKg<20){level='Monitor';color='#b25000';advice='Borderline. Watch for vomiting/panting for 6–12 hours and call a vet if anything appears.';}
+  else if(perKg<40){level='Caution — call vet';color='#d63a00';advice='Toxic symptoms possible. Call your vet now, report the amount, and follow instructions.';}
+  else{level='Danger — vet now';color='#c40000';advice='Risk of heart problems/seizures. Go to a vet (or 24h emergency clinic) immediately.';}
+  const el=document.getElementById('level');el.textContent=level;el.style.color=color;
+  document.getElementById('dose').textContent=fmt(mg)+'mg ('+fmt(perKg,1)+'mg per kg)';
+  const ad=document.getElementById('advice');ad.textContent=advice;ad.style.color=color;show('res');
+}
+</script>
+</body>
+</html>

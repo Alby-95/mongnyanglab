@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog & Cat Pregnancy Due Date Calculator — From Mating Date</title>
+<meta name="description" content="Enter the mating date to get your dog's (about 63 days) or cat's (about 65 days) expected due date and week-by-week care milestones. Free.">
+<link rel="canonical" href="https://mongnyanglab.com/en/pregnancy-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/pregnancy.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/pregnancy-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/pregnancy-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Dog & Cat Pregnancy Due Date Calculator">
+<meta property="og:description" content="Expected due date from the mating date for dogs and cats.">
+<meta property="og:url" content="https://mongnyanglab.com/en/pregnancy-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Pregnancy Due Date Calculator</h1>
+  <p class="lead">Estimate the due date and prep timeline from the mating date.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Mating date</label><input id="mating" type="date"></div>
+      <div class="field"><label>Animal</label><select id="animal"><option value="dog">Dog (avg 63 days)</option><option value="cat">Cat (avg 65 days)</option></select></div>
+    </div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>Expected due date <span class="big" id="due"></span></div>
+      <table><tr><td>Possible range</td><td id="range"></td></tr><tr><td>Ultrasound check around</td><td id="ultra"></td></tr><tr><td>Start birth prep</td><td id="prep"></td></tr></table>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>Pregnancy length and care</h2>
+    <p>Dogs are pregnant about 63 days (58–68), cats about 65 days (60–70). Pregnancy can be confirmed by ultrasound around week 4, and food should increase gradually from week 6. Set up a quiet whelping box 1–2 weeks before the due date.</p>
+    <h2>Signs labor is near</h2>
+    <p>Body temperature drops about 1°C in the 24 hours before birth, with reduced appetite and nesting behavior. If labor starts but no newborn appears within an hour, or green discharge comes first, contact a vet immediately.</p>
+  </section>
+  <p class="disclaimer">This result is for reference only. Always manage pregnancy and birth with a vet.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+function run(){
+  const m=document.getElementById('mating').value;if(!m)return;const base=new Date(m);
+  const isDog=document.getElementById('animal').value==='dog';const avg=isDog?63:65,lo=isDog?58:60,hi=isDog?68:70;
+  const add=function(n){const d=new Date(base);d.setDate(d.getDate()+n);return d;};
+  document.getElementById('due').textContent=kdate(add(avg));
+  document.getElementById('range').textContent=kdate(add(lo))+' – '+kdate(add(hi));
+  document.getElementById('ultra').textContent=kdate(add(28));
+  document.getElementById('prep').textContent='from '+kdate(add(avg-14));
+  show('res');
+}
+</script>
+</body>
+</html>

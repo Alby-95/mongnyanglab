@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cat Food Calculator — How Much to Feed Your Cat Per Day</title>
+<meta name="description" content="How much should you feed your cat? Calculate daily food portion by weight and spay/neuter status using the RER/DER veterinary formula. Free, no sign-up.">
+<link rel="canonical" href="https://mongnyanglab.com/en/cat-food-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/cat-food.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/cat-food-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/cat-food-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Cat Food Calculator — How Much to Feed Per Day">
+<meta property="og:description" content="Daily food portion by weight and spay/neuter status. RER/DER formula.">
+<meta property="og:url" content="https://mongnyanglab.com/en/cat-food-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is free-feeding bad?","acceptedAnswer":{"@type":"Answer","text":"Spayed/neutered indoor cats easily overeat with free-feeding. Measured portions split into 2–4 meals help with weight control."}},{"@type":"Question","name":"What if I also feed wet food?","acceptedAnswer":{"@type":"Answer","text":"On days you give a wet can (usually 70–90 kcal per 80g), reduce dry food by that amount to keep total calories in range."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Cat Food Calculator</h1>
+  <p class="lead">Obesity is the root of many feline health issues. Find the right daily portion.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Weight (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="e.g. 4"></div>
+      <div class="field"><label>Status</label>
+        <select id="state">
+          <option value="2.5">Kitten (under 1 year)</option>
+          <option value="1.2" selected>Adult · spayed/neutered</option>
+          <option value="1.4">Adult · intact</option>
+          <option value="1.0">Indoor · low activity</option>
+          <option value="0.8">Weight loss</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Food calories (kcal per 100g — on the bag)</label><input id="kcal" type="text" inputmode="numeric" value="380"></div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>Daily portion <span class="big" id="grams"></span></div>
+      <table><tr><td>Daily energy need (DER)</td><td id="der"></td></tr><tr><td>Resting energy (RER)</td><td id="rer"></td></tr></table>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <a href="dog-food-calculator.html" class="cross-species">🐶 Dog Food Calculator →</a>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>How the portion is calculated</h2>
+    <p>The Resting Energy Requirement is RER = 70 × body weight (kg) to the 0.75 power, multiplied by a factor for spay/neuter status and activity. Spayed/neutered indoor cats have lower metabolism, so bag guidelines often lead to overfeeding.</p>
+    <h2>If you feed wet food too</h2>
+    <p>A wet can (usually 70–90 kcal per 80g) counts toward daily calories. If the daily need is 200 kcal and you give one 80 kcal can, fill the remaining 120 kcal with dry food.</p>
+  </section>
+  <section class="faq">
+    <details><summary>Is free-feeding bad?</summary><p>Spayed/neutered indoor cats easily overeat with free-feeding. Measured portions split into 2–4 meals help with weight control.</p></details>
+    <details><summary>How do I know if my cat is overweight?</summary><p>From above, no visible waistline and ribs hard to feel are signs of excess weight. A vet's body condition score (BCS) confirms it.</p></details>
+  </section>
+  <p class="disclaimer">This result is for reference only. Consult your vet if your cat has a medical condition.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>function run(){const w=num('weight'),k=num('kcal');if(!w||!k)return;const r=rer(w);const der=r*parseFloat(document.getElementById('state').value);document.getElementById('rer').textContent=fmt(r)+' kcal';document.getElementById('der').textContent=fmt(der)+' kcal';document.getElementById('grams').textContent='about '+fmt(der/k*100)+'g';show('res');}</script>
+</body>
+</html>

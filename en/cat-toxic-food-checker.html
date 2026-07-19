@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cat Toxic Food & Plant Checker — Is It an Emergency?</title>
+<meta name="description" content="Did your cat eat something dangerous? Select what they ate — lilies, onion, chocolate, xylitol and more — to see the risk level and what to do. Free.">
+<link rel="canonical" href="https://mongnyanglab.com/en/cat-toxic-food-checker.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/cat-danger.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/cat-toxic-food-checker.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/cat-toxic-food-checker.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Cat Toxic Food & Plant Checker">
+<meta property="og:description" content="Check what's dangerous for cats and what to do. Lilies are the deadliest.">
+<meta property="og:url" content="https://mongnyanglab.com/en/cat-toxic-food-checker.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Cat Toxic Food & Plant Checker</h1>
+  <p class="lead">Did your cat eat something? Select it to see the risk and what to do.</p>
+  <div class="card">
+    <div class="field"><label>What your cat ate / touched</label>
+      <select id="item">
+        <option value="">— Select —</option>
+        <option value="lily">Lily (flower / leaf / pollen / vase water)</option>
+        <option value="onion">Onion / garlic / chives</option>
+        <option value="xylitol">Xylitol (sugar-free gum / candy)</option>
+        <option value="grape">Grapes / raisins</option>
+        <option value="chocolate">Chocolate / cocoa</option>
+        <option value="caffeine">Coffee / energy drink</option>
+        <option value="alcohol">Alcohol</option>
+        <option value="rawfish">Raw fish (large amount)</option>
+        <option value="milk">Milk / dairy</option>
+        <option value="dogfood">Dog food (ongoing)</option>
+      </select>
+    </div>
+    <button class="calc" onclick="run()">Check risk</button>
+    <div class="result" id="res">
+      <div>Risk level <span class="big" id="level"></span></div>
+      <p id="why" style="margin-top:12px;font-size:14px;color:#3a3a3c"></p>
+      <p id="advice" style="margin-top:12px;font-size:14px;font-weight:700"></p>
+    </div>
+  </div>
+  <a href="chocolate-calculator.html" class="cross-species">🐶 Dog Chocolate Toxicity Calculator →</a>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>The most dangerous things for cats</h2>
+    <p><b>Lilies</b> are the deadliest. Pollen on fur, a nibbled leaf, or even vase water can cause acute kidney failure. Keep lilies out of any home with cats. <b>Onion, garlic, grapes, xylitol, and alcohol</b> can be emergencies even in small amounts — if ingestion is confirmed, contact a vet immediately even without symptoms, because kidney/liver damage shows up late.</p>
+  </section>
+  <div class="page-nav"><a href="index.html" class="pnav-btn">🧮 All calculators</a></div>
+  <p class="disclaimer">This checker is for reference only and does not replace diagnosis. If ingestion is confirmed, contact a vet first.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+var HAZ_EN={lily:{lv:4,why:'The deadliest for cats. Even pollen or vase water can cause acute kidney failure.'},onion:{lv:4,why:'Destroys red blood cells, causing hemolytic anemia. Cooked, powdered, or in broth all count.'},xylitol:{lv:4,why:'Even small amounts can cause acute low blood sugar and liver damage — an emergency.'},grape:{lv:4,why:'Risk of acute kidney failure. May be dangerous regardless of amount.'},chocolate:{lv:3,why:'Theobromine poisoning. Cats rarely eat it (no sweet taste) but it is still dangerous.'},caffeine:{lv:3,why:'Can cause abnormal heart rhythm, tremors, and seizures.'},alcohol:{lv:4,why:'Even small amounts can be fatal — vomiting, breathing trouble, coma.'},rawfish:{lv:2,why:'Thiaminase in raw fish destroys vitamin B1; ongoing feeding can cause neurological issues.'},milk:{lv:1,why:'Most cats are lactose intolerant — diarrhea/vomiting. Not fatal but best avoided.'},dogfood:{lv:2,why:'Lacks taurine (essential for cats); long-term feeding causes heart and vision problems.'}};
+function run(){
+  const k=document.getElementById('item').value;if(!k)return;const h=HAZ_EN[k];
+  const el=document.getElementById('level');let txt,color,advice;
+  if(h.lv>=4){txt='Very dangerous — vet now';color='#c40000';advice='Contact a vet (or 24h emergency clinic) immediately. Even small amounts can be an emergency.';}
+  else if(h.lv===3){txt='Dangerous — call vet';color='#d63a00';advice='Call your vet, report the amount, and follow instructions.';}
+  else if(h.lv===2){txt='Caution';color='#b25000';advice='A small one-time amount is usually fine, but ongoing/large amounts are a problem. Watch for symptoms and call a vet if concerned.';}
+  else{txt='Mild';color='#1a7f37';advice='Not fatal but best avoided. Call a vet if diarrhea/vomiting persists.';}
+  el.textContent=txt;el.style.color=color;
+  document.getElementById('why').textContent=h.why;
+  const ad=document.getElementById('advice');ad.textContent=advice;ad.style.color=color;show('res');
+}
+</script>
+</body>
+</html>

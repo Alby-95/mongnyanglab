@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cat Age Calculator — Convert Cat Years to Human Years</title>
+<meta name="description" content="How old is your cat in human years? Cats reach 15 human years at age 1 and 24 by age 2, then add 4 per year. Free cat age calculator, no sign-up.">
+<link rel="canonical" href="https://mongnyanglab.com/en/cat-age-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/cat-age.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/cat-age-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/cat-age-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cat Age Calculator — Cat Years to Human Years">
+<meta property="og:description" content="Convert your cat's age to human years using the standard veterinary chart.">
+<meta property="og:url" content="https://mongnyanglab.com/en/cat-age-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png">
+<meta property="og:site_name" content="Mongnyang Lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do cats age differently by breed?","acceptedAnswer":{"@type":"Answer","text":"Unlike dogs, cats do not vary much in lifespan by breed or size, so the same conversion chart applies to all cats."}},{"@type":"Question","name":"When is a cat considered senior?","acceptedAnswer":{"@type":"Answer","text":"Cats are usually considered senior from around age 11 (about 60 in human years). Kidney and thyroid issues become more common, so yearly bloodwork is recommended."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Cat Age Calculator</h1>
+  <p class="lead">Cats pack 24 human years into their first two. Find your cat's real age.</p>
+  <div class="card">
+    <div class="field"><label>Cat's age (years)</label><input id="years" type="text" inputmode="decimal" placeholder="e.g. 5 (0.5 for 6 months)"></div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>In human years, that's <span class="big" id="human"></span></div>
+      <p id="stage" style="margin-top:10px;font-size:14px;color:#847b8a"></p>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <a href="dog-age-calculator.html" class="cross-species">🐶 Dog Age Calculator →</a>
+  <section class="info coupang-rec">
+    <h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p>
+  </section>
+  <section class="info">
+    <h2>How cat age is calculated</h2>
+    <p>A cat reaches about 15 human years at age 1 and 24 by age 2. After that, add roughly 4 human years for each cat year. For example, a 5-year-old cat is about 24 + 4×3 = 36 in human years. Indoor cats often live 15+ years.</p>
+    <h2>Senior cat care</h2>
+    <p>From around age 11 (about 60 human years), cats are considered senior. Kidney disease and hyperthyroidism become more common, so a checkup with bloodwork once or twice a year is recommended.</p>
+  </section>
+  <section class="faq">
+    <details><summary>Do cats age differently by breed?</summary><p>Unlike dogs, cats don't vary much in lifespan by breed or size, so the same chart applies to all cats.</p></details>
+    <details><summary>I don't know my cat's exact age.</summary><p>A vet can estimate age from teeth, eyes, and coat. Ask during your next checkup.</p></details>
+  </section>
+  <p class="disclaimer">This result is for general reference and does not replace veterinary advice.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+function run(){
+  const y = num('years'); if(!y) return;
+  const h = catAge(y);
+  document.getElementById('human').textContent = 'about ' + fmt(h) + ' years';
+  const stage = h < 15 ? 'Still a growing kitten.' : h < 30 ? 'An energetic young adult.' : h < 60 ? 'Relaxed middle age.' : 'A senior — regular checkups matter.';
+  document.getElementById('stage').textContent = stage;
+  show('res');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog & Cat Water Intake Calculator — Daily Water Needs</title>
+<meta name="description" content="How much water should your dog or cat drink daily? Calculate the healthy range by body weight and spot signs of over- or under-drinking. Free.">
+<link rel="canonical" href="https://mongnyanglab.com/en/water-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/water.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/water-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/water-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Dog & Cat Water Intake Calculator">
+<meta property="og:description" content="Daily water needs by body weight for dogs and cats.">
+<meta property="og:url" content="https://mongnyanglab.com/en/water-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Daily Water Intake Calculator</h1>
+  <p class="lead">Changes in drinking are an early health signal. Know your pet's baseline.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Weight (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="e.g. 4"></div>
+      <div class="field"><label>Animal</label><select id="animal"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+    </div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>Healthy daily range <span class="big" id="water"></span></div>
+      <table><tr><td>In cups (240ml)</td><td id="cups"></td></tr><tr><td>Concerning if above</td><td id="excess"></td></tr></table>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>Healthy water intake</h2>
+    <p>Both dogs and cats generally need about 40–60ml per kg of body weight per day. Pets on wet food drink less water because the food is over 70% moisture, which is normal.</p>
+    <h2>When to see a vet</h2>
+    <p>Drinking more than about 100ml per kg per day consistently (excessive thirst) can signal kidney disease, diabetes, or Cushing's. In cats especially, a sudden increase in drinking warrants a checkup. On the other end, cats that barely drink are prone to bladder issues — encourage water with fountains or wet food.</p>
+  </section>
+  <p class="disclaimer">This result is for reference only. See a vet if intake changes persist.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>function run(){const w=num('weight');if(!w)return;const lo=w*40,hi=w*60;document.getElementById('water').textContent=fmt(lo)+'–'+fmt(hi)+'ml';document.getElementById('cups').textContent='about '+fmt(lo/240,1)+'–'+fmt(hi/240,1)+' cups';document.getElementById('excess').textContent=fmt(w*100)+'ml/day';show('res');}</script>
+</body>
+</html>

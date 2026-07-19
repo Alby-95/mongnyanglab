@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kitten Vaccination Schedule Calculator — Dates from Birthday</title>
+<meta name="description" content="Enter your kitten's birth date to get the vaccination schedule (FVRCP, leukemia, rabies) with exact dates. Free, based on the standard core program.">
+<link rel="canonical" href="https://mongnyanglab.com/en/cat-vaccine-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/cat-vaccine.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/cat-vaccine-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/cat-vaccine-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Kitten Vaccination Schedule Calculator">
+<meta property="og:description" content="Get your kitten's vaccination dates from their birthday.">
+<meta property="og:url" content="https://mongnyanglab.com/en/cat-vaccine-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Kitten Vaccination Schedule</h1>
+  <p class="lead">Enter the birthday and get exact vaccination dates for your kitten.</p>
+  <div class="card">
+    <div class="field"><label>Kitten's date of birth</label><input id="birth" type="date"></div>
+    <button class="calc" onclick="run()">Calculate schedule</button>
+    <div class="result" id="res"><table id="schedule"></table></div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <a href="dog-vaccine-calculator.html" class="cross-species">🐶 Puppy Vaccination Schedule →</a>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>Standard core program</h2>
+    <ul>
+      <li>8 weeks: FVRCP 1st</li>
+      <li>11 weeks: FVRCP 2nd + leukemia</li>
+      <li>14 weeks: FVRCP 3rd + leukemia</li>
+      <li>16 weeks+: rabies</li>
+    </ul>
+    <p>Even indoor-only cats benefit from core vaccines — deadly viruses like panleukopenia can enter on your clothes and shoes. An antibody titer check after the series confirms immunity.</p>
+  </section>
+  <p class="disclaimer">Programs vary by clinic and vaccine brand. Follow your vet's actual schedule.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+var CAT_VAX_EN=[{week:8,name:'1st — FVRCP'},{week:11,name:'2nd — FVRCP + leukemia'},{week:14,name:'3rd — FVRCP + leukemia'},{week:16,name:'Rabies'},{week:18,name:'Antibody titer check'}];
+function run(){
+  const b=document.getElementById('birth').value;if(!b)return;
+  const birth=new Date(b);const today=new Date();today.setHours(0,0,0,0);let html='';
+  CAT_VAX_EN.forEach(function(v){const d=addWeeks(birth,v.week);const done=d<today;html+='<tr><td>'+v.name+'</td><td style="'+(done?'color:#847b8a':'color:#d94590')+'">'+kdate(d)+(done?' (past)':'')+'</td></tr>';});
+  document.getElementById('schedule').innerHTML=html;show('res');
+}
+</script>
+</body>
+</html>
