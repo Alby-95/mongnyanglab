@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Food Calculator — How Much to Feed Your Dog Per Day (grams)</title>
+<meta name="description" content="How much should you feed your dog? Calculate daily food portion by weight, age, and spay/neuter status using the RER/DER veterinary formula. Free.">
+<link rel="canonical" href="https://mongnyanglab.com/en/dog-food-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/dog-food.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/dog-food-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/dog-food-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dog Food Calculator — How Much to Feed Per Day">
+<meta property="og:description" content="Daily food portion by weight, age, and spay/neuter status. RER/DER formula.">
+<meta property="og:url" content="https://mongnyanglab.com/en/dog-food-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png">
+<meta property="og:site_name" content="Mongnyang Lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4Z2WC2N085');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"The bag's recommended amount differs from this. Why?","acceptedAnswer":{"@type":"Answer","text":"Bag guidelines often assume an active, intact adult dog, so they can be too high. For spayed/neutered indoor dogs, the calculated value is usually closer to reality."}},{"@type":"Question","name":"Where do I find my food's calorie content?","acceptedAnswer":{"@type":"Answer","text":"Look for the 'metabolizable energy (ME)' on the back of the bag, usually 330–400 kcal per 100g. If listed per kg, divide by 10."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Dog Food Calculator</h1>
+  <p class="lead">The amount on the bag is just an average. Recalculate for your dog.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Weight (kg)</label><input id="weight" type="text" inputmode="decimal" placeholder="e.g. 5"></div>
+      <div class="field"><label>Status</label>
+        <select id="state">
+          <option value="3.0">Puppy (under 4 months)</option>
+          <option value="2.0">Puppy (4–12 months)</option>
+          <option value="1.6" selected>Adult · spayed/neutered</option>
+          <option value="1.8">Adult · intact</option>
+          <option value="1.4">Senior</option>
+          <option value="1.0">Weight loss</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Food calories (kcal per 100g — on the bag)</label><input id="kcal" type="text" inputmode="numeric" value="350"></div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>Daily portion <span class="big" id="grams"></span></div>
+      <table>
+        <tr><td>Daily energy need (DER)</td><td id="der"></td></tr>
+        <tr><td>Resting energy (RER)</td><td id="rer"></td></tr>
+        <tr><td>Split into 2 meals</td><td id="half"></td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec">
+    <h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner">
+      <script src="https://ads-partners.coupang.com/g.js"></script>
+      <script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script>
+    </div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p>
+  </section>
+  <section class="info">
+    <h2>How the portion is calculated</h2>
+    <p>Vets calculate the Resting Energy Requirement as RER = 70 × body weight (kg) raised to the 0.75 power, then multiply by a factor based on age and spay/neuter status (DER). Dividing that energy by the food's calorie density gives the daily portion in grams.</p>
+    <h2>More important than the number</h2>
+    <p>The calculated value is a starting point. Check weight and rib coverage (body condition score) every two weeks and adjust in 10% steps. On days you give treats, reduce food by the treat calories — treats should stay under 10% of daily energy.</p>
+  </section>
+  <section class="faq">
+    <details><summary>The bag's recommended amount differs. Why?</summary><p>Bag guidelines often assume an active, intact adult dog, so they can be too high. For spayed/neutered indoor dogs, the calculated value is usually closer to reality.</p></details>
+    <details><summary>Where do I find my food's calorie content?</summary><p>Look for the 'metabolizable energy (ME)' on the back of the bag, usually 330–400 kcal per 100g. If listed per kg, divide by 10.</p></details>
+  </section>
+  <p class="disclaimer">This result is for reference only. Consult your vet if your dog has a medical condition or is pregnant.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+function run(){
+  const w = num('weight'), kcal100 = num('kcal'); if(!w||!kcal100) return;
+  const r = rer(w);
+  const der = r * parseFloat(document.getElementById('state').value);
+  const grams = der / kcal100 * 100;
+  document.getElementById('rer').textContent = fmt(r) + ' kcal';
+  document.getElementById('der').textContent = fmt(der) + ' kcal';
+  document.getElementById('grams').textContent = 'about ' + fmt(grams) + 'g';
+  document.getElementById('half').textContent = fmt(grams/2) + 'g × 2';
+  show('res');
+}
+</script>
+</body>
+</html>

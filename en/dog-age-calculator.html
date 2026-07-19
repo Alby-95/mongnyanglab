@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Age Calculator — Convert Dog Years to Human Years (by Size)</title>
+<meta name="description" content="How old is your dog in human years? The '×7' rule is outdated. Calculate your dog's real human age by breed size (small, medium, large) — free, no sign-up.">
+<link rel="canonical" href="https://mongnyanglab.com/en/dog-age-calculator.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/dog-age.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/dog-age-calculator.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/dog-age-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dog Age Calculator — Dog Years to Human Years">
+<meta property="og:description" content="Calculate your dog's real human age by breed size. More accurate than the ×7 rule.">
+<meta property="og:url" content="https://mongnyanglab.com/en/dog-age-calculator.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png">
+<meta property="og:site_name" content="Mongnyang Lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4Z2WC2N085');
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is the '×7' rule inaccurate?","acceptedAnswer":{"@type":"Answer","text":"Dogs age about 15 human years in their first year and 9 more in their second. After that, aging slows and depends on size. Multiplying by 7 makes puppies seem too old and senior dogs too young."}},{"@type":"Question","name":"How do I calculate a puppy's age in months?","acceptedAnswer":{"@type":"Answer","text":"Divide the number of months by 12. For example, 6 months = 0.5 years."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../index.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Dog Age Calculator</h1>
+  <p class="lead">The "multiply by 7" method is outdated. Get your dog's real human age based on breed size.</p>
+  <div class="card">
+    <div class="row">
+      <div class="field"><label>Dog's age (years)</label><input id="years" type="text" inputmode="decimal" placeholder="e.g. 3 (0.25 for 3 months)"></div>
+      <div class="field"><label>Size</label>
+        <select id="size">
+          <option value="small">Small (under 10kg / 22lb)</option>
+          <option value="medium">Medium (10–25kg / 22–55lb)</option>
+          <option value="large">Large (25–40kg / 55–88lb)</option>
+          <option value="giant">Giant (over 40kg / 88lb)</option>
+        </select>
+      </div>
+    </div>
+    <button class="calc" onclick="run()">Calculate</button>
+    <div class="result" id="res">
+      <div>In human years, that's <span class="big" id="human"></span></div>
+      <p id="stage" style="margin-top:10px;font-size:14px;color:#847b8a"></p>
+    </div>
+  </div>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec">
+    <h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner">
+      <script src="https://ads-partners.coupang.com/g.js"></script>
+      <script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script>
+    </div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p>
+  </section>
+  <section class="info">
+    <h2>How is a dog's age calculated?</h2>
+    <p>A dog reaches about 15 human years at age 1, and 24 by age 2. After that, aging depends on size: small breeds add about 4 human years per year, medium 5, large 6, and giant breeds 7. Larger dogs age faster.</p>
+    <h2>When is a dog considered senior?</h2>
+    <p>Small breeds are usually senior around age 10, medium 8–9, and large breeds around 7. Senior dogs benefit from twice-yearly checkups and joint/kidney care.</p>
+  </section>
+  <section class="faq">
+    <details><summary>Why is the "×7" rule inaccurate?</summary><p>Dogs pack about 20 years of growth into their first 1–2 years, then age slowly. Multiplying by 7 makes puppies seem too old and senior dogs too young.</p></details>
+    <details><summary>How do I calculate a puppy's age in months?</summary><p>Divide the months by 12. For example, 6 months = 0.5 years.</p></details>
+  </section>
+  <p class="disclaimer">This result is for general reference and does not replace veterinary advice.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../index.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+function run(){
+  const y = num('years'); if(!y) return;
+  const size = document.getElementById('size').value;
+  const h = dogAge(y, size);
+  document.getElementById('human').textContent = 'about ' + fmt(h) + ' years';
+  const stage = h < 15 ? 'Still a growing puppy.' : h < 30 ? 'A lively young adult.' : h < 50 ? 'Settled middle age.' : 'A senior — regular checkups are important.';
+  document.getElementById('stage').textContent = stage;
+  show('res');
+}
+</script>
+</body>
+</html>
