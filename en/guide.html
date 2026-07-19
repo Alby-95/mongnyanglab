@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pet Guide — Dog & Cat Care Tips and Safe Foods</title>
+<meta name="description" content="Safe foods for dogs and cats, health warning signs, and seasonal care — everything a pet parent needs, made simple.">
+<link rel="canonical" href="https://mongnyanglab.com/en/guide.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/guide.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/guide.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/guide.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pet Guide — Dog & Cat Care Tips and Safe Foods">
+<meta property="og:description" content="Safe foods for dogs and cats, health warning signs, and seasonal care — everything a pet parent needs, made simple.">
+<meta property="og:url" content="https://mongnyanglab.com/en/guide.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png">
+<meta property="og:site_name" content="Mongnyang Lab">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-4Z2WC2N085');
+</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="guide.html">Pet Guide</a><a href="../guide.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Pet Guide</h1>
+  <p class="lead">The stories the calculators can't hold — safe foods, health signals, and care tips for dog and cat parents.</p>
+  <div class="hot" style="justify-content:flex-start;margin:0 0 18px">
+    <a href="#" onclick="filterGuides('all');return false" id="tab-all" style="border-color:#f261a8">All</a>
+    <a href="#" onclick="filterGuides('dog');return false" id="tab-dog">🐶 Dogs</a>
+    <a href="#" onclick="filterGuides('cat');return false" id="tab-cat">🐱 Cats</a>
+  </div>
+  <div class="tools" style="grid-template-columns:1fr" id="guideList">
+    <a class="tool" href="guide-dog-apple.html"><div class="t">Can Dogs Eat Apples? Removing the Seeds & Daily Amount</div><div class="d">Flesh is OK, always remove seeds and core — amounts by weight</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-grapes.html"><div class="t">My Dog Ate Grapes — Why It's Never OK & What to Do</div><div class="d">Even one or two can be dangerous. A food that causes acute kidney failure</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-summer-walk.html"><div class="t">Summer Dog Walks — How to Avoid Asphalt Burns</div><div class="d">The 7-second test, safe times of day, and heatstroke signs</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-hairball.html"><div class="t">Cat Hairball Care — How Often Is Normal & Warning Signs</div><div class="d">What's normal? Reduce them with brushing, food, and hydration</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-sweetpotato.html"><div class="t">Can Dogs Eat Sweet Potato? Amounts & Cautions</div><div class="d">Cooked and peeled is OK — amounts by weight</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-tuna.html"><div class="t">Can Cats Eat Canned Tuna? The Problem with Human Tuna</div><div class="d">Occasional, small, oil drained. How it differs from cat cans</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-egg.html"><div class="t">Can Dogs Eat Eggs? How to Feed Boiled Eggs</div><div class="d">Fully cooked is a top protein treat, raw is off-limits</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-milk.html"><div class="t">Can Cats Drink Milk? Lactose Intolerance Explained</div><div class="d">Cow's milk is a shortcut to diarrhea — plus alternatives</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-banana.html"><div class="t">Can Dogs Eat Bananas? Healthy Daily Amount</div><div class="d">Safe but watch the sugar — guidelines by weight</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-kneading.html"><div class="t">Why Cats Knead — What the Behavior Means</div><div class="d">A happy signal left over from kittenhood</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-scratcher.html"><div class="t">How to Choose a Cat Scratcher — Save Your Sofa</div><div class="d">Vertical vs horizontal, plus luring with catnip</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-cat-water.html"><div class="t">My Cat Won't Drink Water — 7 Ways to Boost Intake</div><div class="d">The start of preventing cystitis and kidney disease. Targets and real tips</div><span class="go">Read →</span></a>
+    <a class="tool" href="guide-dog-watermelon.html"><div class="t">Can Dogs Eat Watermelon? Amounts & Cautions</div><div class="d">Yes — but skip seeds and rind, and keep to weight-based amounts</div><span class="go">Read →</span></a>
+  </div>
+  <p id="noResult" style="display:none;color:#847b8a;font-size:14px;padding:20px 0">Articles in this category are coming soon.</p>
+  <button id="moreBtn" onclick="showMore()" style="display:none;width:100%;padding:14px;margin-top:14px;font-size:15px;font-weight:700;color:#f261a8;background:transparent;border:1.5px solid #f5d3e7;border-radius:14px;cursor:pointer">Show more +</button>
+  <div class="ad-slot">Ad</div>
+  <p class="disclaimer">New guides are added regularly. All content is for reference only and does not replace veterinary diagnosis.</p>
+  <footer class="site"><a href="index.html">Mongnyang Lab</a> · <a href="../guide.html">한국어 버전</a> · <a href="../privacy.html">Privacy Policy</a></footer>
+</div>
+<script>
+var PAGE_SIZE = 9;
+var curCat = 'all';
+var curLimit = PAGE_SIZE;
+
+function matches(card, cat){
+  var href = card.getAttribute('href') || '';
+  var isDog = href.indexOf('dog') !== -1 || href.indexOf('pet') !== -1;
+  var isCat = href.indexOf('cat') !== -1 || href.indexOf('pet') !== -1;
+  return (cat==='all') || (cat==='dog' && isDog) || (cat==='cat' && isCat);
+}
+
+function render(){
+  var cards = document.querySelectorAll('#guideList .tool');
+  var shown = 0, total = 0;
+  cards.forEach(function(card){
+    if(matches(card, curCat)){
+      total++;
+      card.style.display = (shown < curLimit) ? '' : 'none';
+      if(shown < curLimit) shown++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('noResult').style.display = total ? 'none' : 'block';
+  document.getElementById('moreBtn').style.display = (total > curLimit) ? '' : 'none';
+}
+
+function filterGuides(cat){
+  curCat = cat;
+  curLimit = PAGE_SIZE;
+  ['all','dog','cat'].forEach(function(c){
+    document.getElementById('tab-'+c).style.borderColor = (c===cat) ? '#f261a8' : '';
+  });
+  render();
+}
+
+function showMore(){
+  curLimit += PAGE_SIZE;
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
