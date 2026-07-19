@@ -3,6 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* 외국인 방문자 자동 영어 전환 — 검색 로봇/직접 언어전환은 제외 */
+(function(){
+  try{
+    var p = location.pathname;
+    if(p !== '/' && p !== '/index.html' && p !== '/index') return;
+    var ua = (navigator.userAgent || '');
+    if(/bot|crawl|spider|slurp|googlebot|bingbot|yandex|baiduspider|duckduckbot|facebookexternalhit|linkedinbot|embedly|pinterest|slackbot|telegrambot|twitterbot|whatsapp|discordbot|preview/i.test(ua)) return;
+    if(sessionStorage.getItem('mnl_lang')) return;
+    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+    if(lang && lang.indexOf('ko') !== 0){
+      sessionStorage.setItem('mnl_lang','en');
+      location.replace('/en/');
+    }
+  }catch(e){}
+})();
+</script>
 <title>몽냥랩 — 강아지·고양이 계산기 & 펫 상식 연구소</title>
 <meta name="description" content="우리 아이에게 맞는 숫자, 30초면 나와요. 강아지·고양이 나이, 사료 급여량, 예방접종 일정 계산기부터 먹어도 되는 음식 펫 상식까지 — 무료, 가입 불필요.">
 <meta name="naver-site-verification" content="6b487e2acd65492cacc20316a2ca522497cb8a11" />
