@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dog Toxic Food Checker — Is It an Emergency?</title>
+<meta name="description" content="Did your dog eat something dangerous? Select what they ate — grapes, xylitol, onion, chocolate, macadamia and more — to see the risk level and what to do. Free.">
+<link rel="canonical" href="https://mongnyanglab.com/en/dog-toxic-food-checker.html">
+<link rel="alternate" hreflang="ko" href="https://mongnyanglab.com/dog-danger.html">
+<link rel="alternate" hreflang="en" href="https://mongnyanglab.com/en/dog-toxic-food-checker.html">
+<link rel="alternate" hreflang="x-default" href="https://mongnyanglab.com/en/dog-toxic-food-checker.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Dog Toxic Food Checker">
+<meta property="og:description" content="Check what's dangerous for dogs and what to do. Grapes and xylitol are emergencies even in small amounts.">
+<meta property="og:url" content="https://mongnyanglab.com/en/dog-toxic-food-checker.html">
+<meta property="og:image" content="https://mongnyanglab.com/og.png"><meta property="og:site_name" content="Mongnyang Lab"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../styles.css"><link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html"><span class="paw">🐾</span>Mongnyang<span class="brand">Lab</span></a>
+  <nav class="top"><a href="index.html">Calculators</a><a href="../dog-danger.html">한국어</a></nav>
+</div></header>
+<div class="wrap">
+  <h1>Dog Toxic Food Checker</h1>
+  <p class="lead">Did your dog eat something? Select it to see the risk and what to do.</p>
+  <div class="card">
+    <div class="field"><label>What your dog ate</label>
+      <select id="item">
+        <option value="">— Select —</option>
+        <option value="grape">Grapes / raisins</option>
+        <option value="xylitol">Xylitol (sugar-free gum / candy / some peanut butter)</option>
+        <option value="onion">Onion / garlic / chives</option>
+        <option value="alcohol">Alcohol (drinks / rising dough)</option>
+        <option value="chocolate">Chocolate / cocoa</option>
+        <option value="caffeine">Coffee / energy drink</option>
+        <option value="macadamia">Macadamia nuts</option>
+        <option value="avocado">Avocado</option>
+        <option value="bone">Cooked bones (chicken bones, etc.)</option>
+        <option value="milk">Milk / dairy</option>
+      </select>
+    </div>
+    <button class="calc" onclick="run()">Check risk</button>
+    <div class="result" id="res">
+      <div>Risk level <span class="big" id="level"></span></div>
+      <p id="why" style="margin-top:12px;font-size:14px;color:#3a3a3c"></p>
+      <p id="advice" style="margin-top:12px;font-size:14px;font-weight:700"></p>
+    </div>
+  </div>
+  <a href="chocolate-calculator.html" class="cross-species">🍫 Dog Chocolate Toxicity Calculator (check by amount) →</a>
+  <a href="cat-toxic-food-checker.html" class="cross-species">🐱 Cat Toxic Food Checker →</a>
+  <div class="ad-slot">Ad</div>
+  <section class="info coupang-rec"><h2>🛒 Coupang Pet Best Sellers</h2>
+    <div class="coupang-banner"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1007976,"template":"carousel","trackingCode":"AF7454328","subId":"mongnyanglab","width":"680","height":"140","tsource":""});</script></div>
+    <p class="coupang-notice">As a Coupang Partners affiliate, we may earn a commission from qualifying purchases.</p></section>
+  <section class="info">
+    <h2>The most dangerous things for dogs</h2>
+    <p><b>Grapes and raisins</b> can cause acute kidney failure and must never be given, regardless of amount. <b>Xylitol</b> — found in sugar-free gum, candy, and even some peanut butter — can cause acute low blood sugar and liver failure even in small amounts, making it an emergency. <b>Onion, garlic, and alcohol</b> are also dangerous beyond small amounts. If ingestion is confirmed, contact a vet immediately even without symptoms, because liver/kidney damage shows up late.</p>
+    <h2>If you catch it early</h2>
+    <ul>
+      <li>Figure out what and how much they ate (check packaging / leftovers)</li>
+      <li>Do not force vomiting — the vet will treat it safely</li>
+      <li>At night, look up a 24-hour emergency clinic in advance</li>
+      <li>Contact a vet even if there are no symptoms (vomiting, lethargy, tremors, seizures)</li>
+    </ul>
+  </section>
+  <div class="page-nav"><a href="index.html" class="pnav-btn">🧮 All calculators</a></div>
+  <p class="disclaimer">This checker is for reference only and does not replace diagnosis. If ingestion is confirmed, contact a vet first.</p>
+  <footer class="site"><a href="index.html">← All calculators</a> · <a href="../dog-danger.html">한국어 버전</a></footer>
+</div>
+<script src="../common.js"></script>
+<script>
+var DOG_HAZ_EN={
+  grape:{lv:4,why:'Can cause acute kidney failure. May be dangerous regardless of amount — never give.'},
+  xylitol:{lv:4,why:'Especially deadly for dogs. Even small amounts cause acute low blood sugar and liver failure — an emergency.'},
+  onion:{lv:4,why:'Destroys red blood cells, causing hemolytic anemia. Cooked, powdered, or in broth all count; more is worse.'},
+  alcohol:{lv:4,why:'Even small amounts can be fatal — vomiting, breathing trouble, coma. Rising bread dough is also dangerous.'},
+  chocolate:{lv:3,why:'Theobromine poisoning. Dark/baking chocolate is worse, and the amount relative to body weight matters.'},
+  caffeine:{lv:3,why:'Can cause abnormal heart rhythm, hyperactivity, tremors, and seizures.'},
+  macadamia:{lv:3,why:'Causes weakness, vomiting, hind-leg weakness, high fever, and tremors in dogs. Even small amounts can trigger symptoms.'},
+  avocado:{lv:2,why:'Persin and the large pit are the concern. A little flesh is usually fine, but the pit risks blockage/choking.'},
+  bone:{lv:2,why:'Cooked bones splinter sharply and can cut or block the esophagus/intestines. Unlike raw bones, they are risky.'},
+  milk:{lv:1,why:'Many dogs are lactose intolerant — diarrhea and bloating. Not fatal but best avoided.'}
+};
+function run(){
+  const k=document.getElementById('item').value;if(!k)return;const h=DOG_HAZ_EN[k];
+  const el=document.getElementById('level');let txt,color,advice;
+  if(h.lv>=4){txt='Very dangerous — vet now';color='#c40000';advice='Contact a vet (or 24h emergency clinic) immediately. Even small amounts can be an emergency.';}
+  else if(h.lv===3){txt='Dangerous — call vet';color='#d63a00';advice='Call your vet, report the amount and your dog’s weight, and follow instructions.';}
+  else if(h.lv===2){txt='Caution';color='#b25000';advice='A small one-time amount is usually fine, but ongoing/large amounts are a problem. Watch for symptoms and call a vet if concerned.';}
+  else{txt='Mild';color='#1a7f37';advice='Not fatal but best avoided. Call a vet if diarrhea/vomiting persists.';}
+  el.textContent=txt;el.style.color=color;
+  document.getElementById('why').textContent=h.why;
+  const ad=document.getElementById('advice');ad.textContent=advice;ad.style.color=color;show('res');
+}
+</script>
+</body>
+</html>
