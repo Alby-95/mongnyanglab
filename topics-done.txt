@@ -17,3 +17,4 @@ guide-cat-scratcher | cat | 고양이 스크래처 고르기
 guide-dog-apple | dog | 강아지 사과(씨 제거·급여량)
 guide-cat-chicken | cat | 고양이 닭가슴살/닭고기 급여
 guide-dog-cooling-mat | dog rec | 여름 쿨매트 고르는 법(젤·알루미늄·냉감원단)
+guide-cat-heatstroke | cat | 고양이 열사병(더위 먹음) 증상·응급 대처
