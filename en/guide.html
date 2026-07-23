@@ -36,30 +36,34 @@ gtag('config', 'G-4Z2WC2N085');
 <div class="wrap">
   <h1>Pet Guide</h1>
   <p class="lead">The stories the calculators can't hold — safe foods, health signals, and care tips for dog and cat parents.</p>
-  <div class="hot" style="justify-content:flex-start;margin:0 0 18px">
+  <div class="hot" style="justify-content:flex-start;flex-wrap:wrap;margin:0 0 18px">
     <a href="#" onclick="filterGuides('all');return false" id="tab-all" style="border-color:#f261a8">All</a>
     <a href="#" onclick="filterGuides('dog');return false" id="tab-dog">🐶 Dogs</a>
     <a href="#" onclick="filterGuides('cat');return false" id="tab-cat">🐱 Cats</a>
+    <a href="#" onclick="filterGuides('food');return false" id="tab-food">🍽️ Food</a>
+    <a href="#" onclick="filterGuides('health');return false" id="tab-health">🩺 Health</a>
+    <a href="#" onclick="filterGuides('care');return false" id="tab-care">💡 Care</a>
+    <a href="#" onclick="filterGuides('rec');return false" id="tab-rec">🛒 Picks</a>
   </div>
   <div class="tools" style="grid-template-columns:1fr" id="guideList">
-    <a class="tool" href="guide-cat-watermelon.html"><div class="t">Can Cats Eat Watermelon? Safe Amounts &amp; Precautions</div><div class="d">Small amounts OK — remove seeds and rind, one or two bites max, which cats should skip it</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-heartworm.html"><div class="t">Heartworm in Dogs — Symptoms &amp; Prevention Schedule</div><div class="d">One mosquito bite is all it takes — warning signs, monthly prevention, when to test first</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-heatstroke.html"><div class="t">Heatstroke in Cats — Symptoms &amp; Emergency First Aid</div><div class="d">Open-mouth breathing is a red flag — danger temperatures and 4 first-aid steps</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-cooling-mat.html"><div class="t">How to Choose a Dog Cooling Mat — Types &amp; Checklist</div><div class="d">Gel vs. aluminum vs. cooling fabric — 5 criteria: chewing, size, cleaning</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-chicken.html"><div class="t">Can Cats Eat Chicken Breast? Safe Amounts & How to Serve It</div><div class="d">Plain boiled lean meat only — no bones or skin, amounts per day</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-apple.html"><div class="t">Can Dogs Eat Apples? Removing the Seeds & Daily Amount</div><div class="d">Flesh is OK, always remove seeds and core — amounts by weight</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-grapes.html"><div class="t">My Dog Ate Grapes — Why It's Never OK & What to Do</div><div class="d">Even one or two can be dangerous. A food that causes acute kidney failure</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-summer-walk.html"><div class="t">Summer Dog Walks — How to Avoid Asphalt Burns</div><div class="d">The 7-second test, safe times of day, and heatstroke signs</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-hairball.html"><div class="t">Cat Hairball Care — How Often Is Normal & Warning Signs</div><div class="d">What's normal? Reduce them with brushing, food, and hydration</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-sweetpotato.html"><div class="t">Can Dogs Eat Sweet Potato? Amounts & Cautions</div><div class="d">Cooked and peeled is OK — amounts by weight</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-tuna.html"><div class="t">Can Cats Eat Canned Tuna? The Problem with Human Tuna</div><div class="d">Occasional, small, oil drained. How it differs from cat cans</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-egg.html"><div class="t">Can Dogs Eat Eggs? How to Feed Boiled Eggs</div><div class="d">Fully cooked is a top protein treat, raw is off-limits</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-milk.html"><div class="t">Can Cats Drink Milk? Lactose Intolerance Explained</div><div class="d">Cow's milk is a shortcut to diarrhea — plus alternatives</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-banana.html"><div class="t">Can Dogs Eat Bananas? Healthy Daily Amount</div><div class="d">Safe but watch the sugar — guidelines by weight</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-kneading.html"><div class="t">Why Cats Knead — What the Behavior Means</div><div class="d">A happy signal left over from kittenhood</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-scratcher.html"><div class="t">How to Choose a Cat Scratcher — Save Your Sofa</div><div class="d">Vertical vs horizontal, plus luring with catnip</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-cat-water.html"><div class="t">My Cat Won't Drink Water — 7 Ways to Boost Intake</div><div class="d">The start of preventing cystitis and kidney disease. Targets and real tips</div><span class="go">Read →</span></a>
-    <a class="tool" href="guide-dog-watermelon.html"><div class="t">Can Dogs Eat Watermelon? Amounts & Cautions</div><div class="d">Yes — but skip seeds and rind, and keep to weight-based amounts</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-watermelon.html"><div class="t">Can Cats Eat Watermelon? Safe Amounts &amp; Precautions</div><div class="d">Small amounts OK — remove seeds and rind, one or two bites max, which cats should skip it</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="health" href="guide-dog-heartworm.html"><div class="t">Heartworm in Dogs — Symptoms &amp; Prevention Schedule</div><div class="d">One mosquito bite is all it takes — warning signs, monthly prevention, when to test first</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-heatstroke.html"><div class="t">Heatstroke in Cats — Symptoms &amp; Emergency First Aid</div><div class="d">Open-mouth breathing is a red flag — danger temperatures and 4 first-aid steps</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="rec" href="guide-dog-cooling-mat.html"><div class="t">How to Choose a Dog Cooling Mat — Types &amp; Checklist</div><div class="d">Gel vs. aluminum vs. cooling fabric — 5 criteria: chewing, size, cleaning</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-chicken.html"><div class="t">Can Cats Eat Chicken Breast? Safe Amounts & How to Serve It</div><div class="d">Plain boiled lean meat only — no bones or skin, amounts per day</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-apple.html"><div class="t">Can Dogs Eat Apples? Removing the Seeds & Daily Amount</div><div class="d">Flesh is OK, always remove seeds and core — amounts by weight</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-grapes.html"><div class="t">My Dog Ate Grapes — Why It's Never OK & What to Do</div><div class="d">Even one or two can be dangerous. A food that causes acute kidney failure</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="care" href="guide-dog-summer-walk.html"><div class="t">Summer Dog Walks — How to Avoid Asphalt Burns</div><div class="d">The 7-second test, safe times of day, and heatstroke signs</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-hairball.html"><div class="t">Cat Hairball Care — How Often Is Normal & Warning Signs</div><div class="d">What's normal? Reduce them with brushing, food, and hydration</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-sweetpotato.html"><div class="t">Can Dogs Eat Sweet Potato? Amounts & Cautions</div><div class="d">Cooked and peeled is OK — amounts by weight</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-tuna.html"><div class="t">Can Cats Eat Canned Tuna? The Problem with Human Tuna</div><div class="d">Occasional, small, oil drained. How it differs from cat cans</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-egg.html"><div class="t">Can Dogs Eat Eggs? How to Feed Boiled Eggs</div><div class="d">Fully cooked is a top protein treat, raw is off-limits</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-milk.html"><div class="t">Can Cats Drink Milk? Lactose Intolerance Explained</div><div class="d">Cow's milk is a shortcut to diarrhea — plus alternatives</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-banana.html"><div class="t">Can Dogs Eat Bananas? Healthy Daily Amount</div><div class="d">Safe but watch the sugar — guidelines by weight</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="care" href="guide-cat-kneading.html"><div class="t">Why Cats Knead — What the Behavior Means</div><div class="d">A happy signal left over from kittenhood</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="rec" href="guide-cat-scratcher.html"><div class="t">How to Choose a Cat Scratcher — Save Your Sofa</div><div class="d">Vertical vs horizontal, plus luring with catnip</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-water.html"><div class="t">My Cat Won't Drink Water — 7 Ways to Boost Intake</div><div class="d">The start of preventing cystitis and kidney disease. Targets and real tips</div><span class="go">Read →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-watermelon.html"><div class="t">Can Dogs Eat Watermelon? Amounts & Cautions</div><div class="d">Yes — but skip seeds and rind, and keep to weight-based amounts</div><span class="go">Read →</span></a>
   </div>
   <p id="noResult" style="display:none;color:#847b8a;font-size:14px;padding:20px 0">Articles in this category are coming soon.</p>
   <button id="moreBtn" onclick="showMore()" style="display:none;width:100%;padding:14px;margin-top:14px;font-size:15px;font-weight:700;color:#f261a8;background:transparent;border:1.5px solid #f5d3e7;border-radius:14px;cursor:pointer">Show more +</button>
@@ -74,9 +78,11 @@ var curLimit = PAGE_SIZE;
 
 function matches(card, cat){
   var href = card.getAttribute('href') || '';
-  var isDog = href.indexOf('dog') !== -1 || href.indexOf('pet') !== -1;
-  var isCat = href.indexOf('cat') !== -1 || href.indexOf('pet') !== -1;
-  return (cat==='all') || (cat==='dog' && isDog) || (cat==='cat' && isCat);
+  var topic = card.getAttribute('data-topic') || '';
+  if(cat==='all') return true;
+  if(cat==='dog') return href.indexOf('dog')!==-1 || href.indexOf('pet')!==-1;
+  if(cat==='cat') return href.indexOf('cat')!==-1 || href.indexOf('pet')!==-1;
+  return topic===cat;
 }
 
 function render(){
@@ -98,7 +104,7 @@ function render(){
 function filterGuides(cat){
   curCat = cat;
   curLimit = PAGE_SIZE;
-  ['all','dog','cat'].forEach(function(c){
+  ['all','dog','cat','food','health','care','rec'].forEach(function(c){
     document.getElementById('tab-'+c).style.borderColor = (c===cat) ? '#f261a8' : '';
   });
   render();

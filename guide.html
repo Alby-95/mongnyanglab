@@ -36,31 +36,35 @@ gtag('config', 'G-4Z2WC2N085');
 <div class="wrap">
   <h1>펫 상식</h1>
   <p class="lead">계산기로 다 담지 못한 이야기들 — 먹어도 되는 음식, 건강 신호, 돌봄 팁을 정리합니다.</p>
-  <div class="hot" style="justify-content:flex-start;margin:0 0 18px">
+  <div class="hot" style="justify-content:flex-start;flex-wrap:wrap;margin:0 0 18px">
     <a href="#" onclick="filterGuides('all');return false" id="tab-all" style="border-color:#f261a8">전체</a>
     <a href="#" onclick="filterGuides('dog');return false" id="tab-dog">🐶 강아지</a>
     <a href="#" onclick="filterGuides('cat');return false" id="tab-cat">🐱 고양이</a>
+    <a href="#" onclick="filterGuides('food');return false" id="tab-food">🍽️ 먹거리</a>
+    <a href="#" onclick="filterGuides('health');return false" id="tab-health">🩺 건강</a>
+    <a href="#" onclick="filterGuides('care');return false" id="tab-care">💡 돌봄</a>
+    <a href="#" onclick="filterGuides('rec');return false" id="tab-rec">🛒 추천</a>
   </div>
   <div class="tools" style="grid-template-columns:1fr" id="guideList">
     <!-- GUIDE-LIST: 새 글은 이 주석 바로 아래에 추가 -->
-    <a class="tool" href="guide-cat-watermelon.html"><div class="t">고양이 수박 먹어도 되나요? 안전 급여량과 주의사항</div><div class="d">소량 OK — 씨·껍질 제거, 과육 한두 조각 한도, 주의할 고양이 유형</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-heartworm.html"><div class="t">강아지 심장사상충 증상과 예방약 주기 — 여름철 필수</div><div class="d">모기 한 방으로 감염 — 의심 증상, 월 1회 예방, 검사가 먼저인 경우</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-heatstroke.html"><div class="t">고양이 열사병 증상과 응급 대처 — 더위 먹었을 때</div><div class="d">개구호흡은 위험 신호 — 위험 체온 기준과 응급 대처 4단계</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-cooling-mat.html"><div class="t">강아지 쿨매트 고르는 법 — 종류별 장단점과 체크리스트</div><div class="d">젤·알루미늄·냉감원단 비교, 씹는 습관·크기·세척 5가지 기준</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-chicken.html"><div class="t">고양이 닭가슴살 먹어도 되나요? 급여량과 안전하게 주는 법</div><div class="d">간 없이 삶은 살코기만 OK — 뼈·껍질 금지, 하루 적정량</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-apple.html"><div class="t">강아지 사과 먹어도 되나요? 씨 제거법과 하루 급여량</div><div class="d">과육은 OK, 씨와 심은 반드시 제거 — 체중별 적정량</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-grapes.html"><div class="t">강아지 포도 먹었을 때 — 절대 안 되는 이유와 응급 대처</div><div class="d">한두 알도 위험. 급성 신부전을 부르는 금지 음식</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-summer-walk.html"><div class="t">여름 강아지 산책 시간 — 아스팔트 화상 피하는 법</div><div class="d">7초 테스트, 안전한 시간대, 열사병 신호까지</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-hairball.html"><div class="t">고양이 헤어볼 관리법 — 토하는 주기와 위험 신호</div><div class="d">어디까지 정상? 빗질·사료·수분으로 줄이는 법</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-sweetpotato.html"><div class="t">강아지 고구마 먹어도 되나요? 급여량과 주의사항</div><div class="d">익혀서 껍질 벗기면 OK — 체중별 적정량</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-tuna.html"><div class="t">고양이 참치캔 줘도 되나요? 사람용 참치의 문제점</div><div class="d">가끔·소량·기름 빼고. 전용 캔과의 차이</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-egg.html"><div class="t">강아지 계란 먹어도 되나요? 삶은 계란 급여법</div><div class="d">완숙은 최고의 단백질 간식, 날계란은 금지</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-milk.html"><div class="t">고양이 우유 줘도 되나요? 유당불내증 총정리</div><div class="d">사람 우유는 설사의 지름길 — 대안까지</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-banana.html"><div class="t">강아지 바나나 먹어도 되나요? 하루 적정량</div><div class="d">안전하지만 당분 주의 — 체중별 기준</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-kneading.html"><div class="t">고양이 꾹꾹이 하는 이유 — 행동의 의미</div><div class="d">아기 때 기억이 남은 행복 신호</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-scratcher.html"><div class="t">고양이 스크래처 고르는 법 — 소파 지키는 배치</div><div class="d">수직파/수평파 구분부터 캣닢 유도까지</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-cat-water.html"><div class="t">고양이가 물을 안 마셔요 — 음수량 늘리는 7가지 방법</div><div class="d">방광염·신장병 예방의 시작. 적정 음수량 기준과 실전 팁</div><span class="go">읽기 →</span></a>
-    <a class="tool" href="guide-dog-watermelon.html"><div class="t">강아지 수박 먹어도 되나요? 급여량과 주의사항</div><div class="d">결론은 OK — 단 씨와 껍질은 빼고, 체중별 적정량 지키기</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-watermelon.html"><div class="t">고양이 수박 먹어도 되나요? 안전 급여량과 주의사항</div><div class="d">소량 OK — 씨·껍질 제거, 과육 한두 조각 한도, 주의할 고양이 유형</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="health" href="guide-dog-heartworm.html"><div class="t">강아지 심장사상충 증상과 예방약 주기 — 여름철 필수</div><div class="d">모기 한 방으로 감염 — 의심 증상, 월 1회 예방, 검사가 먼저인 경우</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-heatstroke.html"><div class="t">고양이 열사병 증상과 응급 대처 — 더위 먹었을 때</div><div class="d">개구호흡은 위험 신호 — 위험 체온 기준과 응급 대처 4단계</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="rec" href="guide-dog-cooling-mat.html"><div class="t">강아지 쿨매트 고르는 법 — 종류별 장단점과 체크리스트</div><div class="d">젤·알루미늄·냉감원단 비교, 씹는 습관·크기·세척 5가지 기준</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-chicken.html"><div class="t">고양이 닭가슴살 먹어도 되나요? 급여량과 안전하게 주는 법</div><div class="d">간 없이 삶은 살코기만 OK — 뼈·껍질 금지, 하루 적정량</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-apple.html"><div class="t">강아지 사과 먹어도 되나요? 씨 제거법과 하루 급여량</div><div class="d">과육은 OK, 씨와 심은 반드시 제거 — 체중별 적정량</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-grapes.html"><div class="t">강아지 포도 먹었을 때 — 절대 안 되는 이유와 응급 대처</div><div class="d">한두 알도 위험. 급성 신부전을 부르는 금지 음식</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="care" href="guide-dog-summer-walk.html"><div class="t">여름 강아지 산책 시간 — 아스팔트 화상 피하는 법</div><div class="d">7초 테스트, 안전한 시간대, 열사병 신호까지</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-hairball.html"><div class="t">고양이 헤어볼 관리법 — 토하는 주기와 위험 신호</div><div class="d">어디까지 정상? 빗질·사료·수분으로 줄이는 법</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-sweetpotato.html"><div class="t">강아지 고구마 먹어도 되나요? 급여량과 주의사항</div><div class="d">익혀서 껍질 벗기면 OK — 체중별 적정량</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-tuna.html"><div class="t">고양이 참치캔 줘도 되나요? 사람용 참치의 문제점</div><div class="d">가끔·소량·기름 빼고. 전용 캔과의 차이</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-egg.html"><div class="t">강아지 계란 먹어도 되나요? 삶은 계란 급여법</div><div class="d">완숙은 최고의 단백질 간식, 날계란은 금지</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-cat-milk.html"><div class="t">고양이 우유 줘도 되나요? 유당불내증 총정리</div><div class="d">사람 우유는 설사의 지름길 — 대안까지</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-banana.html"><div class="t">강아지 바나나 먹어도 되나요? 하루 적정량</div><div class="d">안전하지만 당분 주의 — 체중별 기준</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="care" href="guide-cat-kneading.html"><div class="t">고양이 꾹꾹이 하는 이유 — 행동의 의미</div><div class="d">아기 때 기억이 남은 행복 신호</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="rec" href="guide-cat-scratcher.html"><div class="t">고양이 스크래처 고르는 법 — 소파 지키는 배치</div><div class="d">수직파/수평파 구분부터 캣닢 유도까지</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="health" href="guide-cat-water.html"><div class="t">고양이가 물을 안 마셔요 — 음수량 늘리는 7가지 방법</div><div class="d">방광염·신장병 예방의 시작. 적정 음수량 기준과 실전 팁</div><span class="go">읽기 →</span></a>
+    <a class="tool" data-topic="food" href="guide-dog-watermelon.html"><div class="t">강아지 수박 먹어도 되나요? 급여량과 주의사항</div><div class="d">결론은 OK — 단 씨와 껍질은 빼고, 체중별 적정량 지키기</div><span class="go">읽기 →</span></a>
   </div>
   <p id="noResult" style="display:none;color:#847b8a;font-size:14px;padding:20px 0">이 카테고리의 글이 곧 추가될 예정이에요.</p>
   <button id="moreBtn" onclick="showMore()" style="display:none;width:100%;padding:14px;margin-top:14px;font-size:15px;font-weight:700;color:#f261a8;background:transparent;border:1.5px solid #f5d3e7;border-radius:14px;cursor:pointer">더 보기 +</button>
@@ -75,9 +79,11 @@ var curLimit = PAGE_SIZE;
 
 function matches(card, cat){
   var href = card.getAttribute('href') || '';
-  var isDog = href.indexOf('dog') !== -1 || href.indexOf('pet') !== -1;
-  var isCat = href.indexOf('cat') !== -1 || href.indexOf('pet') !== -1;
-  return (cat==='all') || (cat==='dog' && isDog) || (cat==='cat' && isCat);
+  var topic = card.getAttribute('data-topic') || '';
+  if(cat==='all') return true;
+  if(cat==='dog') return href.indexOf('dog')!==-1 || href.indexOf('pet')!==-1;
+  if(cat==='cat') return href.indexOf('cat')!==-1 || href.indexOf('pet')!==-1;
+  return topic===cat;
 }
 
 function render(){
@@ -99,7 +105,7 @@ function render(){
 function filterGuides(cat){
   curCat = cat;
   curLimit = PAGE_SIZE;
-  ['all','dog','cat'].forEach(function(c){
+  ['all','dog','cat','food','health','care','rec'].forEach(function(c){
     document.getElementById('tab-'+c).style.borderColor = (c===cat) ? '#f261a8' : '';
   });
   render();
