@@ -22,3 +22,4 @@ guide-dog-heartworm | dog | 강아지 심장사상충 증상·예방약 주기
 guide-cat-watermelon | cat | 고양이 수박(소량 OK·씨/껍질 주의)
 guide-cat-litter | cat rec | 고양이 모래 고르는 법(벤토나이트·두부·크리스탈·펠릿 비교)
 guide-dog-heatstroke | dog | 강아지 열사병 증상·응급처치(먼저 식히고 병원으로)
+guide-cat-cystitis | cat | 고양이 방광염(특발성·FLUTD) 증상·원인·예방
