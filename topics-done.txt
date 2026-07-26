@@ -27,3 +27,4 @@ guide-dog-vomiting | dog | 강아지 구토 색깔별 원인(담즙·흰거품·
 guide-cat-water-fountain | cat rec | 고양이 급수기 고르는 법(순환식·중력식·재질·세척 편의성)
 guide-dog-ear-infection | dog | 강아지 외이염(귀 염증) 증상·원인·장마철 관리
 guide-cat-egg | cat | 고양이 계란(완전히 익힌 것만·날계란 아비딘/살모넬라·급여량)
+guide-dog-patella | dog | 강아지 슬개골 탈구 증상·1~4기 단계·수술 기준·미끄럼방지 관리
