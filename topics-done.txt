@@ -25,3 +25,4 @@ guide-dog-heatstroke | dog | 강아지 열사병 증상·응급처치(먼저 식
 guide-cat-cystitis | cat | 고양이 방광염(특발성·FLUTD) 증상·원인·예방
 guide-dog-vomiting | dog | 강아지 구토 색깔별 원인(담즙·흰거품·갈색·혈액)·병원 가야 할 때
 guide-cat-water-fountain | cat rec | 고양이 급수기 고르는 법(순환식·중력식·재질·세척 편의성)
+guide-dog-ear-infection | dog | 강아지 외이염(귀 염증) 증상·원인·장마철 관리
