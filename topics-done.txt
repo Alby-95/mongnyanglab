@@ -30,3 +30,4 @@ guide-cat-egg | cat | 고양이 계란(완전히 익힌 것만·날계란 아비
 guide-dog-patella | dog | 강아지 슬개골 탈구 증상·1~4기 단계·수술 기준·미끄럼방지 관리
 guide-cat-brush | cat rec | 고양이 빗 고르는 법(러버·슬리커·핀·사랑빗·언더코트 레이크, 단모/장모별 선택)
 guide-dog-diarrhea | dog | 강아지 설사 원인·색깔별 신호(노란변/검은타르변/혈변)·금식 여부·병원 가야 할 때
+guide-cat-kidney | cat | 고양이 만성신부전(CKD) 초기 신호·다음다뇨/체중감소·SDMA 조기검사·노령묘 검진 시기
