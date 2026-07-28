@@ -32,3 +32,4 @@ guide-cat-brush | cat rec | 고양이 빗 고르는 법(러버·슬리커·핀·
 guide-dog-diarrhea | dog | 강아지 설사 원인·색깔별 신호(노란변/검은타르변/혈변)·금식 여부·병원 가야 할 때
 guide-cat-kidney | cat | 고양이 만성신부전(CKD) 초기 신호·다음다뇨/체중감소·SDMA 조기검사·노령묘 검진 시기
 guide-dog-cucumber | dog | 강아지 오이(생오이 OK·껍질/씨 제거·체중별 급여량·오이지/오이무침 마늘양파 금지)
+guide-cat-tower | cat rec | 캣타워 고르는 법(안정성·발판 간격·원목/MDF/파티클보드·사이잘·노령묘/다묘)
