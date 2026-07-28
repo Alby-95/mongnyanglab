@@ -33,3 +33,4 @@ guide-dog-diarrhea | dog | 강아지 설사 원인·색깔별 신호(노란변/�
 guide-cat-kidney | cat | 고양이 만성신부전(CKD) 초기 신호·다음다뇨/체중감소·SDMA 조기검사·노령묘 검진 시기
 guide-dog-cucumber | dog | 강아지 오이(생오이 OK·껍질/씨 제거·체중별 급여량·오이지/오이무침 마늘양파 금지)
 guide-cat-tower | cat rec | 캣타워 고르는 법(안정성·발판 간격·원목/MDF/파티클보드·사이잘·노령묘/다묘)
+guide-dog-skin-itch | dog | 강아지 피부병·가려움 원인 구분(농피증·말라세치아·아토피·식이/벼룩 알레르기·옴)·여름 관리·병원 신호
