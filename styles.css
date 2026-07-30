@@ -264,7 +264,9 @@ button.calc{position:relative;overflow:hidden}
 /* ── 히어로 마스코트 (애니메이션 SVG) ── */
 .mascots{display:flex;justify-content:center;align-items:flex-end;gap:14px;margin:0 0 4px}
 .mascot{width:104px;height:112px;overflow:visible;flex:0 0 auto}
-.mascot *{transform-box:fill-box}
+.mascot .m-bob,.mascot .m-breathe,.mascot .m-shadow,.mascot .m-blink,
+.mascot .d-tail,.mascot .d-ear-l,.mascot .d-ear-r,.mascot .d-head,.mascot .d-tongue,
+.mascot .c-tail,.mascot .c-ear-l,.mascot .c-ear-r,.mascot .c-head{transform-box:fill-box}
 
 /* 몸 전체 위아래 */
 .m-bob{transform-origin:50% 100%;animation:mBob 3.4s ease-in-out infinite}
@@ -291,12 +293,12 @@ button.calc{position:relative;overflow:hidden}
 }
 
 /* 강아지 — 꼬리 흔들기 */
-.d-tail{transform-origin:8% 92%;animation:dTail .62s ease-in-out infinite}
+.d-tail{transform-origin:17% 89%;animation:dTail .62s ease-in-out infinite}
 @keyframes dTail{0%,100%{transform:rotate(-11deg)}50%{transform:rotate(13deg)}}
 
 /* 강아지 — 귀 팔랑 */
-.d-ear-l{transform-origin:88% 12%;animation:dEarL 3.4s ease-in-out infinite}
-.d-ear-r{transform-origin:12% 12%;animation:dEarR 3.4s ease-in-out infinite}
+.d-ear-l{transform-origin:70% 4%;animation:dEarL 3.4s ease-in-out infinite}
+.d-ear-r{transform-origin:30% 4%;animation:dEarR 3.4s ease-in-out infinite}
 @keyframes dEarL{0%,100%{transform:rotate(0)}42%{transform:rotate(6deg)}70%{transform:rotate(-2deg)}}
 @keyframes dEarR{0%,100%{transform:rotate(0)}42%{transform:rotate(-6deg)}70%{transform:rotate(2deg)}}
 
@@ -314,7 +316,7 @@ button.calc{position:relative;overflow:hidden}
 @keyframes dTongue{0%,100%{transform:scaleY(.82)}50%{transform:scaleY(1.12)}}
 
 /* 고양이 — 꼬리 살랑 */
-.c-tail{transform-origin:6% 96%;animation:cTail 2.6s ease-in-out infinite}
+.c-tail{transform-origin:21% 89%;animation:cTail 2.6s ease-in-out infinite}
 @keyframes cTail{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(9deg)}}
 
 /* 고양이 — 귀 쫑긋 (간헐적) */
