@@ -75,3 +75,63 @@ const DOG_HAZARDS = {
   bone:      {name:'익힌 뼈(닭 뼈 등)', level:2, why:'익힌 뼈는 날카롭게 쪼개져 식도·장에 상처를 내거나 막을 수 있습니다. 생뼈와 달리 위험합니다.'},
   milk:      {name:'우유·유제품', level:1, why:'많은 강아지가 유당불내증이라 설사·복부 팽만. 치명적이진 않지만 피하는 게 좋습니다.'},
 };
+
+/* ── 인터랙션: 발도장 · 숫자 카운트업 · 사용 측정 ── */
+(function () {
+  var RM = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  function pawBurst(btn, ev) {
+    if (RM) return;
+    var r = btn.getBoundingClientRect();
+    var el = document.createElement('span');
+    el.className = 'pawburst';
+    el.style.left = ((ev.clientX || r.left + r.width / 2) - r.left) + 'px';
+    el.style.top = ((ev.clientY || r.top + r.height / 2) - r.top) + 'px';
+    btn.appendChild(el);
+    setTimeout(function () { el.parentNode && el.parentNode.removeChild(el); }, 700);
+  }
+
+  function countUp(el) {
+    if (RM) return;
+    var txt = el.textContent;
+    var all = txt.match(/-?[\d,]*\.?\d+/g);
+    if (!all || all.length !== 1) return; // 범위값(120~180ml) 등은 카운트업 제외
+    var m = txt.match(/-?[\d,]*\.?\d+/);
+    var raw = m[0].replace(/,/g, ''), end = parseFloat(raw);
+    if (!isFinite(end) || end === 0 || Math.abs(end) > 1e7) return;
+    var dec = (raw.split('.')[1] || '').length;
+    var grouped = m[0].indexOf(',') > -1;
+    var pre = txt.slice(0, m.index), post = txt.slice(m.index + m[0].length);
+    var t0 = performance.now(), dur = 620;
+    function fmt(v) {
+      var s = v.toFixed(dec);
+      return grouped ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s;
+    }
+    (function step(t) {
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + fmt(end * e) + post;
+      if (p < 1) requestAnimationFrame(step); else el.textContent = txt;
+    })(t0);
+  }
+
+  document.addEventListener('click', function (ev) {
+    var btn = ev.target && ev.target.closest && ev.target.closest('button.calc');
+    if (!btn) return;
+    pawBurst(btn, ev);
+    requestAnimationFrame(function () {
+      var res = document.querySelector('.result.show');
+      if (!res) return;
+      var big = res.querySelector('.big');
+      if (big) countUp(big);
+      if (window.innerWidth < 700) {
+        res.scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'nearest' });
+      }
+    });
+    if (typeof gtag === 'function') {
+      gtag('event', 'calculate', {
+        calculator: location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/',
+        page_lang: document.documentElement.lang || 'ko'
+      });
+    }
+  }, false);
+})();

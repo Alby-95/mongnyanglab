@@ -3,20 +3,21 @@ html{color-scheme:light}
   --bg:#fdfbfd;--card:#ffffff;--text:#231f26;--sub:#847b8a;
   --accent:#f261a8;--accent2:#9d7bf5;--accent3:#6ecfc3;--accent-dark:#d94590;--line:rgba(40,20,50,.07);
   --good:#1a7f37;--result-bg:#fdf1f8;--result-line:#f5d3e7;--input-bg:#faf8fb;
-  --rainbow:linear-gradient(90deg,#ff5ea8,#b07bf5 35%,#6fb1ff 70%,#4fd4c0);
-  --rainbow-btn:linear-gradient(135deg,#ff5ea8,#9d7bf5 55%,#6fb1ff);
+  --rainbow:linear-gradient(90deg,#ff6fae,#e0468f);
+  --rainbow-btn:linear-gradient(135deg,#ff77b4,#e0468f);
   --shadow:0 2px 6px rgba(60,30,70,.05),0 12px 32px rgba(60,30,70,.07);
   --radius:22px;
+  --paw-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cellipse%20cx%3D%277.2%27%20cy%3D%279%27%20rx%3D%271.9%27%20ry%3D%272.4%27%2F%3E%3Cellipse%20cx%3D%2712%27%20cy%3D%277.2%27%20rx%3D%271.9%27%20ry%3D%272.5%27%2F%3E%3Cellipse%20cx%3D%2716.8%27%20cy%3D%279%27%20rx%3D%271.9%27%20ry%3D%272.4%27%2F%3E%3Cpath%20d%3D%27M12%2012.4c2.7%200%204.8%201.9%204.8%204.1%200%201.8-1.5%202.9-3.2%202.9-.6%200-1.1-.2-1.6-.2s-1%20.2-1.6.2c-1.7%200-3.2-1.1-3.2-2.9%200-2.2%202.1-4.1%204.8-4.1Z%27%2F%3E%3C%2Fsvg%3E");
 }
 body::before{
-  content:'';position:fixed;top:0;left:0;right:0;height:5px;z-index:100;
-  background:var(--rainbow);
+  content:'';position:fixed;top:0;left:0;right:0;height:2px;z-index:100;
+  background:var(--accent);
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",sans-serif;
-  background:linear-gradient(165deg,#fff0f7 0%,#f5efff 32%,#ecf5ff 62%,#eafaf3 100%) fixed;
+  background:#fcfbfc fixed;
   color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;
 }
 
@@ -31,7 +32,7 @@ header.site{
 header.site .wrap{padding:0 22px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:17.5px;letter-spacing:-.4px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:8px}
 .logo .paw{width:29px;height:29px;border-radius:9px;background:var(--rainbow-btn);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 4px 10px rgba(242,97,168,.32)}
-.logo span.brand{background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo span.brand{color:var(--accent-dark)}
 nav.top{display:flex;gap:2px;flex-wrap:wrap;justify-content:flex-end;min-width:0}
 nav.top a{font-size:13px;font-weight:600;color:var(--sub);text-decoration:none;padding:7px 11px;border-radius:999px;transition:.15s}
 nav.top a:hover{color:var(--text);background:var(--line)}
@@ -71,7 +72,7 @@ button.calc:active{transform:translateY(0)}
 .result{display:none;margin-top:20px;padding:22px;background:var(--result-bg);border-radius:16px}
 .result.show{display:block;animation:fade .3s ease}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.result .big{font-size:29px;font-weight:800;letter-spacing:-.6px;background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+.result .big{font-size:30px;font-weight:800;letter-spacing:-.6px;color:var(--accent-dark);font-variant-numeric:tabular-nums}
 .result table{width:100%;margin-top:14px;border-collapse:collapse;font-size:14px}
 .result td{padding:8px 0;border-bottom:1px solid var(--result-line)}
 .result td:last-child{text-align:right;font-weight:700}
@@ -89,14 +90,10 @@ section.info li{margin-bottom:6px}
 /* 인덱스: 히어로 (파스텔 오로라) */
 .hero{position:relative;padding:64px 0 26px;text-align:center;overflow:hidden}
 .hero::before{
-  content:'';position:absolute;inset:-60px -80px;z-index:-1;filter:blur(52px);opacity:.85;
+  content:'';position:absolute;inset:-60px -80px;z-index:-1;filter:blur(56px);opacity:.7;
   background:
-    radial-gradient(42% 46% at 15% 30%, #ffd0ea 0%, transparent 70%),
-    radial-gradient(38% 42% at 50% 12%, #e2d5ff 0%, transparent 70%),
-    radial-gradient(36% 40% at 85% 28%, #cfe4ff 0%, transparent 70%),
-    radial-gradient(34% 38% at 72% 80%, #ccf3ea 0%, transparent 70%),
-    radial-gradient(32% 36% at 25% 84%, #ffe9d2 0%, transparent 70%);
-  animation:aurora 12s ease-in-out infinite alternate;
+    radial-gradient(46% 50% at 50% 18%, #ffd6e9 0%, transparent 72%),
+    radial-gradient(40% 44% at 18% 62%, #ffe6f1 0%, transparent 74%);
 }
 
 @keyframes aurora{from{transform:translateY(0) scale(1)}to{transform:translateY(14px) scale(1.06)}}
@@ -107,7 +104,7 @@ section.info li{margin-bottom:6px}
   padding:6px 14px;border-radius:999px;margin-bottom:20px;letter-spacing:-.2px;
 }
 .hero h1{font-size:clamp(30px,6vw,44px);margin:0;letter-spacing:-1.2px}
-.hero h1 em{font-style:normal;background:var(--rainbow);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{font-style:normal;color:var(--accent-dark)}
 .hero p{color:var(--sub);font-size:16.5px;margin:16px auto 0;max-width:460px}
 .paws{position:absolute;inset:0;pointer-events:none}
 .paws span{position:absolute;font-size:21px;opacity:.22;animation:float 7s ease-in-out infinite}
@@ -136,22 +133,30 @@ section.info li{margin-bottom:6px}
   transition:transform .2s cubic-bezier(.2,.7,.3,1.2),box-shadow .2s;
   animation:rise .5s ease backwards;position:relative;overflow:hidden;
 }
-.tool::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--rainbow);opacity:0;transition:opacity .2s}
+.tool::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent);opacity:0;transition:opacity .2s}
 .tool:hover::before{opacity:1}
-/* 카드마다 파스텔 무지개 순환 틴트 */
-.tools .tool:nth-child(6n+1){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ff5ea8 9%,var(--card)))}
-.tools .tool:nth-child(6n+2){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#b07bf5 9%,var(--card)))}
-.tools .tool:nth-child(6n+3){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#6fb1ff 10%,var(--card)))}
-.tools .tool:nth-child(6n+4){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#4fd4c0 10%,var(--card)))}
-.tools .tool:nth-child(6n+5){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ffb054 9%,var(--card)))}
-.tools .tool:nth-child(6n+6){background:linear-gradient(150deg,var(--card),color-mix(in srgb,#ff7d94 9%,var(--card)))}
 .tool:nth-child(1){animation-delay:.03s}.tool:nth-child(2){animation-delay:.07s}.tool:nth-child(3){animation-delay:.11s}
 .tool:nth-child(4){animation-delay:.15s}.tool:nth-child(5){animation-delay:.19s}.tool:nth-child(6){animation-delay:.23s}
 .tool:nth-child(7){animation-delay:.27s}.tool:nth-child(8){animation-delay:.31s}.tool:nth-child(9){animation-delay:.35s}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .tool:hover{transform:translateY(-4px) scale(1.015);box-shadow:0 8px 20px rgba(60,30,70,.08),0 22px 48px rgba(60,30,70,.1)}
-.tool .icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:13px}
-.ic1{background:#ffe8dc}.ic2{background:#e3f0ff}.ic3{background:#fff3d6}.ic4{background:#e6f7ea}
+/* ── 아이콘 (단색 SVG 마스크) ── */
+.tool .icon{width:46px;height:46px;border-radius:14px;margin-bottom:13px;background:var(--ico-bg,#f4f2f6);position:relative;display:block;transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .25s}
+.tool .icon::after{content:'';position:absolute;inset:0;margin:auto;width:27px;height:27px;background:var(--ico,#8a8194);-webkit-mask:var(--ico-img) center/contain no-repeat;mask:var(--ico-img) center/contain no-repeat}
+.ic1{--ico:#f2618f;--ico-bg:#f2618f14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M7.5%206.2C5.6%206.9%204.4%208.8%204.4%2011c0%201.9%201%203.4%202.6%204%27%2F%3E%3Cpath%20d%3D%27M16.5%206.2c1.9.7%203.1%202.6%203.1%204.8%200%201.9-1%203.4-2.6%204%27%2F%3E%3Cpath%20d%3D%27M12%204.4c-2.6%200-4.5%202-4.5%204.7%200%201%20.1%201.8.1%202.6%200%203.1%201.9%205.1%204.4%205.1s4.4-2%204.4-5.1c0-.8.1-1.6.1-2.6%200-2.7-1.9-4.7-4.5-4.7Z%27%2F%3E%3Ccircle%20cx%3D%2710.2%27%20cy%3D%2710.2%27%20r%3D%27.9%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3Ccircle%20cx%3D%2713.8%27%20cy%3D%2710.2%27%20r%3D%27.9%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3Cellipse%20cx%3D%2712%27%20cy%3D%2713%27%20rx%3D%271.35%27%20ry%3D%271%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3Cpath%20d%3D%27M12%2014.1v.9%27%2F%3E%3Cpath%20d%3D%27M10.5%2015.6c1%20.6%202%20.6%203%200%27%2F%3E%3C%2Fsvg%3E")}
+.ic2{--ico:#8b7bf5;--ico-bg:#8b7bf514;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M5.4%209.4%204.8%204.2c-.05-.5.5-.8.9-.5l3.8%202.6%27%2F%3E%3Cpath%20d%3D%27M18.6%209.4l.6-5.2c.05-.5-.5-.8-.9-.5l-3.8%202.6%27%2F%3E%3Cpath%20d%3D%27M12%205.6c-3.9%200-6.6%202.8-6.6%206.4S8.1%2019%2012%2019s6.6-3.4%206.6-7-2.7-6.4-6.6-6.4Z%27%2F%3E%3Ccircle%20cx%3D%279.6%27%20cy%3D%2711.6%27%20r%3D%27.85%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3Ccircle%20cx%3D%2714.4%27%20cy%3D%2711.6%27%20r%3D%27.85%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3Cpath%20d%3D%27M12%2014.2v.9%27%2F%3E%3Cpath%20d%3D%27M10.5%2015.9c.9.6%202.1.6%203%200%27%2F%3E%3Cpath%20d%3D%27M3.6%2012.6h2.6M3.9%2015.1l2.3-.7M20.4%2012.6h-2.6M20.1%2015.1l-2.3-.7%27%2F%3E%3C%2Fsvg%3E")}
+.ic3{--ico:#e08a3c;--ico-bg:#e08a3c14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M3.4%2011.4h17.2c0%204.4-3.8%207.6-8.6%207.6s-8.6-3.2-8.6-7.6Z%27%2F%3E%3Cpath%20d%3D%27M6.6%2011.4c0-2.6%202.4-4.6%205.4-4.6s5.4%202%205.4%204.6%27%2F%3E%3Cpath%20d%3D%27M9.4%207.4c-.4-1%20.1-2%201-2.4M12.6%206.9c-.4-1%20.1-2%201-2.4%27%2F%3E%3C%2Fsvg%3E")}
+.ic4{--ico:#3fa4c4;--ico-bg:#3fa4c414;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M14.8%2012c0%203.2-3%205.9-6.4%205.9-2.8%200-5.2-1.7-6.1-4.2a1.8%201.8%200%200%201%200-1.2C3.2%209.9%205.6%208.1%208.4%208.1c3.4%200%206.4%202.7%206.4%203.9Z%27%2F%3E%3Cpath%20d%3D%27m14.8%2012%205.7-3.6c.6-.4%201.3.2%201.1.8l-.8%202.8.8%202.8c.2.6-.5%201.2-1.1.8L14.8%2012Z%27%2F%3E%3Cpath%20d%3D%27M8.6%208.2%209.9%205.6M9.4%2017.7l1.1%202.3%27%2F%3E%3Ccircle%20cx%3D%276.2%27%20cy%3D%2711.4%27%20r%3D%27.9%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E")}
+.ic5{--ico:#5b8def;--ico-bg:#5b8def14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m14.6%204.4%205%205%27%2F%3E%3Cpath%20d%3D%27m17.1%206.9-8.8%208.8%27%2F%3E%3Cpath%20d%3D%27m12.4%206.6%205%205-5.2%205.2a1%201%200%200%201-.7.3H8.2l-2.4%202.4-1.5-1.5%202.4-2.4v-3.3c0-.3.1-.5.3-.7l5.4-5Z%27%2F%3E%3Cpath%20d%3D%27m10.9%209.6%203.5%203.5M9.2%2011.3l3.5%203.5%27%2F%3E%3C%2Fsvg%3E")}
+.ic6{--ico:#8b7bf5;--ico-bg:#8b7bf514;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27m14.6%204.4%205%205%27%2F%3E%3Cpath%20d%3D%27m17.1%206.9-8.8%208.8%27%2F%3E%3Cpath%20d%3D%27m12.4%206.6%205%205-5.2%205.2a1%201%200%200%201-.7.3H8.2l-2.4%202.4-1.5-1.5%202.4-2.4v-3.3c0-.3.1-.5.3-.7l5.4-5Z%27%2F%3E%3Cpath%20d%3D%27m10.9%209.6%203.5%203.5M9.2%2011.3l3.5%203.5%27%2F%3E%3C%2Fsvg%3E")}
+.ic7{--ico:#a2703f;--ico-bg:#a2703f14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M4.6%205.6a2%202%200%200%201%202-2h6.9l5.9%205.9v8.9a2%202%200%200%201-2%202H6.6a2%202%200%200%201-2-2V5.6Z%27%2F%3E%3Cpath%20d%3D%27M13.5%203.6v5.9h5.9%27%2F%3E%3Cpath%20d%3D%27M4.6%2010.4h14.8M4.6%2015.5h14.8M9.5%203.6v16.8M14.5%209.5v10.9%27%2F%3E%3C%2Fsvg%3E")}
+.ic8{--ico:#e0603c;--ico-bg:#e0603c14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203.4%2021.4%2019.8c.4.7-.1%201.5-.9%201.5H3.5c-.8%200-1.3-.8-.9-1.5L12%203.4Z%27%2F%3E%3Cpath%20d%3D%27M12%209.4v5%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2717.4%27%20r%3D%27.95%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E")}
+.ic9{--ico:#e0603c;--ico-bg:#e0603c14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203.4%2021.4%2019.8c.4.7-.1%201.5-.9%201.5H3.5c-.8%200-1.3-.8-.9-1.5L12%203.4Z%27%2F%3E%3Cpath%20d%3D%27M12%209.4v5%27%2F%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2717.4%27%20r%3D%27.95%27%20fill%3D%27black%27%20stroke%3D%27none%27%2F%3E%3C%2Fsvg%3E")}
+.ic10{--ico:#37a8b8;--ico-bg:#37a8b814;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M12%203.2c3.3%203.8%206.3%207%206.3%2010.4A6.3%206.3%200%200%201%205.7%2013.6C5.7%2010.2%208.7%207%2012%203.2Z%27%2F%3E%3Cpath%20d%3D%27M9.2%2014.4a2.9%202.9%200%200%200%202.4%202.8%27%2F%3E%3C%2Fsvg%3E")}
+.ic11{--ico:#d1699e;--ico-bg:#d1699e14;--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M9.4%203.4h5.2M10%203.4v2.2M14%203.4v2.2%27%2F%3E%3Cpath%20d%3D%27M8.6%205.6h6.8c.6%200%201.1.5%201.1%201.1v1.1H7.5V6.7c0-.6.5-1.1%201.1-1.1Z%27%2F%3E%3Cpath%20d%3D%27M8.2%207.8h7.6v11.4c0%20.9-.7%201.6-1.6%201.6H9.8c-.9%200-1.6-.7-1.6-1.6V7.8Z%27%2F%3E%3Cpath%20d%3D%27M8.2%2011.6h3M8.2%2014.6h3M8.2%2017.6h3%27%2F%3E%3C%2Fsvg%3E")}
+/* 발바닥 장식 */
+.paw-mark{--ico-img:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cellipse%20cx%3D%277.2%27%20cy%3D%279%27%20rx%3D%271.9%27%20ry%3D%272.4%27%2F%3E%3Cellipse%20cx%3D%2712%27%20cy%3D%277.2%27%20rx%3D%271.9%27%20ry%3D%272.5%27%2F%3E%3Cellipse%20cx%3D%2716.8%27%20cy%3D%279%27%20rx%3D%271.9%27%20ry%3D%272.4%27%2F%3E%3Cpath%20d%3D%27M12%2012.4c2.7%200%204.8%201.9%204.8%204.1%200%201.8-1.5%202.9-3.2%202.9-.6%200-1.1-.2-1.6-.2s-1%20.2-1.6.2c-1.7%200-3.2-1.1-3.2-2.9%200-2.2%202.1-4.1%204.8-4.1Z%27%2F%3E%3C%2Fsvg%3E")}
+
 .ic5{background:#f3e8ff}.ic6{background:#ffe3ec}.ic7{background:#f0e9df}.ic8{background:#dff4f7}.ic9{background:#ffeede}
 
 .tool .t{font-weight:800;font-size:15.5px;letter-spacing:-.3px}
@@ -202,3 +207,56 @@ footer.site a{color:var(--sub);text-decoration:none}
 .guide-table th,.info table th{font-weight:700;white-space:nowrap}
 .guide-table tr:last-child td,.info table tr:last-child td{border-bottom:none}
 @media(max-width:520px){.guide-table,.info table{font-size:13px;table-layout:fixed;word-break:keep-all;overflow-wrap:anywhere}.guide-table th,.guide-table td,.info table th,.info table td{padding:7px 6px}.guide-table th,.info table th{white-space:normal}}
+
+/* ── 펫 인터랙션 ── */
+.tool:hover .icon{transform:translateY(-2px) rotate(-7deg) scale(1.06)}
+.tool:hover .icon::after{animation:wag .55s ease-in-out}
+@keyframes wag{0%,100%{transform:rotate(0)}30%{transform:rotate(9deg)}65%{transform:rotate(-7deg)}}
+.tool .go{transition:transform .22s cubic-bezier(.2,.7,.3,1.3)}
+.tool:hover .go{transform:translateX(4px)}
+
+/* 히어로 배경 발바닥 (이모지 → SVG) */
+.paws span{
+  width:24px;height:24px;background:var(--accent);opacity:.16;
+  -webkit-mask:var(--paw-img) center/contain no-repeat;mask:var(--paw-img) center/contain no-repeat;
+}
+.paws span:nth-child(2){width:18px;height:18px}
+.paws span:nth-child(3){width:16px;height:16px}
+
+/* 로고 발바닥 */
+.logo .paw::after{
+  content:'';display:block;width:17px;height:17px;background:#fff;
+  -webkit-mask:var(--paw-img) center/contain no-repeat;mask:var(--paw-img) center/contain no-repeat;
+}
+@media(max-width:420px){.logo .paw::after{width:14px;height:14px}}
+
+/* 계산 버튼 — 누르면 발도장이 톡 */
+button.calc{position:relative;overflow:hidden}
+.pawburst{
+  position:absolute;width:26px;height:26px;pointer-events:none;background:#fff;
+  -webkit-mask:var(--paw-img) center/contain no-repeat;mask:var(--paw-img) center/contain no-repeat;
+  transform:translate(-50%,-50%) scale(.4);opacity:.9;animation:pawpop .62s ease-out forwards;
+}
+@keyframes pawpop{
+  0%{transform:translate(-50%,-50%) scale(.35) rotate(-18deg);opacity:.85}
+  45%{opacity:.55}
+  100%{transform:translate(-50%,-50%) scale(2.6) rotate(10deg);opacity:0}
+}
+
+/* 결과 등장 — 살짝 튀어오르게 */
+.result.show{animation:pounce .42s cubic-bezier(.34,1.4,.5,1)}
+@keyframes pounce{
+  0%{opacity:0;transform:translateY(14px) scale(.97)}
+  60%{opacity:1;transform:translateY(-3px) scale(1.008)}
+  100%{opacity:1;transform:none}
+}
+.result .big{display:inline-block;transform-origin:left center}
+.result.show .big{animation:bigpop .5s .1s cubic-bezier(.34,1.56,.64,1) backwards}
+@keyframes bigpop{from{transform:scale(.82);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* 움직임 최소화 설정 존중 */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero::before{animation:none}
+}
