@@ -269,6 +269,7 @@ button.calc{position:relative;overflow:hidden}
 .mascot .c-tail,.mascot .c-ear-l,.mascot .c-ear-r,.mascot .c-head{transform-box:fill-box}
 
 /* 몸 전체 위아래 */
+.mascot .m-breathe,.mascot .d-head,.mascot .c-head,.mascot .d-tail,.mascot .c-tail{will-change:transform}
 .m-bob{transform-origin:50% 100%;animation:mBob 3.4s ease-in-out infinite}
 .mascot-cat .m-bob{animation-duration:3.9s;animation-delay:-1.2s}
 @keyframes mBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3.5px)}}
