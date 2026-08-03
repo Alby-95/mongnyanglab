@@ -16,52 +16,512 @@
 <meta property="og:image" content="https://mongnyanglab.com/og.png">
 <meta property="og:site_name" content="Mongnyang Lab">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="../styles.css">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5994103496275682" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Z2WC2N085"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4Z2WC2N085');</script>
+<style>
+:root{
+  --bg:#F5F5F7;--card:#FFFFFF;--ink:#1D1D1F;--sub:#6E6E73;
+  --hair:rgba(0,0,0,.08);--accent:#FF5A3C;--accent-soft:#FFF0EB;
+  --blue:#6366F1;--danger:#FF3B30;--danger-soft:#FFEDEB;--r:20px;
+  --sans:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --shadow:0 2px 8px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;background:none;border:none;color:inherit}
+input{font-family:inherit;color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+@media(max-width:640px){.wrap{padding:0 18px}}
+.nav{position:sticky;top:0;z-index:50;background:rgba(245,245,247,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hair)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;letter-spacing:.02em}
+.logo svg{width:22px;height:22px}
+.nav-links{display:flex;gap:24px;font-size:13.5px;font-weight:500;color:var(--sub)}
+.nav-links a:hover{color:var(--ink)}
+@media(max-width:700px){.nav-links{gap:16px;font-size:12.5px}.nav-links a:nth-child(1){display:none}}
+.hero{padding:64px 0 40px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(700px 460px at 30% -10%, rgba(255,90,60,.16), transparent 65%),radial-gradient(620px 420px at 78% 8%, rgba(139,92,246,.13), transparent 65%),radial-gradient(700px 460px at 55% 90%, rgba(255,170,60,.10), transparent 70%);filter:blur(2px)}
+.hero > .wrap{position:relative}
+.hero-badge{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.03em;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 16px;margin-bottom:18px}
+.hero h1{font-size:clamp(32px,5.6vw,58px);font-weight:800;line-height:1.2;letter-spacing:-.025em}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#FF5A3C,#E22B8A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.hero-sub{margin:18px auto 0;max-width:460px;font-size:17px;color:var(--sub)}
+.deco{position:absolute;pointer-events:none;opacity:.45;animation:float 7s ease-in-out infinite}
+.deco svg{width:100%;height:100%}
+.deco.d1{width:54px;height:54px;left:6%;top:120px;animation-delay:0s;transform:rotate(-14deg)}
+.deco.d2{width:36px;height:36px;right:9%;top:90px;animation-delay:1.6s;transform:rotate(18deg)}
+.deco.d3{width:42px;height:42px;right:16%;top:320px;animation-delay:3.1s;transform:rotate(-8deg)}
+.deco.d4{width:30px;height:30px;left:13%;top:340px;animation-delay:4.4s;transform:rotate(10deg)}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@media(max-width:760px){.deco{display:none}}
+@media(prefers-reduced-motion:reduce){.deco{animation:none}}
+.calc-card{margin:40px auto 0;max-width:720px;background:var(--card);border-radius:calc(var(--r) + 6px);box-shadow:0 2px 10px rgba(0,0,0,.04), 0 20px 50px rgba(255,90,60,.13);padding:28px 28px 26px;text-align:left;position:relative;border:1px solid rgba(0,0,0,.05)}
+@media(max-width:640px){.calc-card{padding:22px 18px 20px}}
+.seg{display:flex;background:var(--bg);border-radius:12px;padding:3px;max-width:280px;margin:0 auto}
+.seg button{flex:1;padding:9px 0;border-radius:9px;font-size:15px;font-weight:600;color:var(--sub);transition:all .2s ease}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.10)}
+.calc-body{display:grid;grid-template-columns:1fr 1.15fr;gap:28px;margin-top:26px;align-items:start}
+@media(max-width:640px){.calc-body{grid-template-columns:1fr;gap:20px}}
+.field-label{font-size:13px;font-weight:600;color:var(--sub);margin-bottom:8px}
+.weight-box{display:flex;align-items:baseline;gap:8px;background:var(--bg);border-radius:14px;padding:14px 18px}
+.weight-box input{width:100%;background:transparent;border:none;outline:none;font-size:34px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.weight-box input::-webkit-outer-spin-button,.weight-box input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.weight-box input[type=number]{-moz-appearance:textfield;appearance:textfield}
+.weight-box span{font-size:17px;font-weight:600;color:var(--sub)}
+.unit-toggle{display:inline-flex;gap:0;margin-left:6px;border:1px solid var(--hair);border-radius:8px;overflow:hidden}
+.unit-toggle button{font-size:12px;font-weight:700;padding:4px 10px;color:var(--sub)}
+.unit-toggle button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.stage-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.stage-chips button{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;background:var(--bg);color:var(--sub);transition:all .18s ease}
+.stage-chips button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.results{display:flex;gap:0;border-radius:14px;background:linear-gradient(135deg,#FFF1EC,#FFE9F2);padding:18px 6px}
+.result{flex:1;text-align:center;border-right:1px solid rgba(0,0,0,.06)}
+.result:last-child{border-right:none}
+.result-num{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.result-num small{font-size:.55em;font-weight:600;color:var(--sub);margin-left:1px}
+.result:first-child .result-num{background:linear-gradient(100deg,#FF5A3C,#E22B8A);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.result:first-child .result-num small{-webkit-text-fill-color:var(--sub)}
+.result-name{font-size:11.5px;font-weight:600;color:var(--sub);margin-top:3px}
+.calc-note{margin-top:12px;font-size:12px;color:var(--sub);line-height:1.55}
+.calc-more{margin-top:14px;text-align:center}
+.calc-more a{font-size:13.5px;font-weight:600;color:var(--accent)}
+section{padding:68px 0 0}
+.sec-head{text-align:center;margin-bottom:32px}
+.sec-eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.04em;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:5px 14px;margin-bottom:12px}
+.sec-head h2{font-size:clamp(24px,3.6vw,36px);font-weight:800;letter-spacing:-.015em}
+.sec-head p{margin-top:8px;font-size:15px;color:var(--sub)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.feat{grid-template-columns:1fr}}
+.feat-card{border-radius:var(--r);box-shadow:var(--shadow);padding:28px 24px 24px;transition:transform .25s ease, box-shadow .25s ease;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden}
+.feat-card:hover{transform:translateY(-5px);box-shadow:0 4px 12px rgba(0,0,0,.05), 0 22px 48px rgba(0,0,0,.10)}
+.feat-card::after{content:"";position:absolute;right:-34px;bottom:-34px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,.5)}
+.feat-ico{width:52px;height:52px;border-radius:15px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;background:rgba(255,255,255,.9);box-shadow:0 2px 6px rgba(0,0,0,.05)}
+.feat-ico svg{width:27px;height:27px}
+.feat-card h3{font-size:19.5px;font-weight:800;letter-spacing:-.01em}
+.feat-card p{font-size:13.5px;color:var(--sub)}
+.feat-card .go{margin-top:auto;padding-top:14px;font-size:13.5px;font-weight:700;position:relative;z-index:1}
+.all{margin-top:16px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(max-width:700px){.all{grid-template-columns:1fr}}
+.row{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:16px;padding:15px 18px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:background .18s ease,opacity .25s ease}
+.row:hover{background:#FAFAFC}
+.row.dim{opacity:.38}
+.row-ico{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.row-ico svg{width:19px;height:19px}
+.row-main{flex:1;min-width:0}
+.row-main b{display:block;font-size:15px;font-weight:600;letter-spacing:-.005em}
+.row-main span{display:block;font-size:12.5px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row-chev{color:var(--sub);font-size:15px}
+.danger-inner{background:var(--card);border-radius:calc(var(--r) + 6px);box-shadow:var(--shadow);padding:36px 32px 32px}
+@media(max-width:640px){.danger-inner{padding:26px 18px 22px}}
+.danger-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.danger-head h2{font-size:clamp(21px,3vw,28px);font-weight:800;letter-spacing:-.01em}
+.danger-head h2 em{font-style:normal;color:var(--danger)}
+.search{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:10px 14px;min-width:min(300px,100%)}
+.search svg{flex:none;width:16px;height:16px;color:var(--sub)}
+.search input{flex:1;min-width:0;background:transparent;border:none;outline:none;font-size:15px}
+.search input::placeholder{color:var(--sub)}
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:860px){.dgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.dgrid{grid-template-columns:1fr}}
+.dcard{border:1px solid var(--hair);border-radius:16px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px;transition:transform .2s ease, box-shadow .2s ease}
+.dcard:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.dcard[data-sev="em"]{background:linear-gradient(180deg,#FFF6F5,#fff);border-color:rgba(255,59,48,.20)}
+.dcard-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dcard-top b{font-size:16.5px;font-weight:700;letter-spacing:-.005em}
+.sev{font-size:10.5px;font-weight:700;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.sev.em{background:var(--danger);color:#fff}
+.sev.hi{background:var(--danger-soft);color:var(--danger)}
+.sev.md{background:var(--bg);color:var(--sub)}
+.dcard-sp{font-size:11.5px;font-weight:600;color:var(--sub)}
+.dcard-sym{font-size:13px;color:var(--sub);line-height:1.55}
+.dcard.hidden-extra{display:none}
+.danger-sec.expanded .dcard.hidden-extra{display:flex}
+.dcard.search-hide{display:none !important}
+.more{margin:20px auto 0;display:block;font-size:14.5px;font-weight:600;color:var(--blue);padding:8px 18px;border-radius:999px;transition:background .18s ease}
+.more:hover{background:var(--bg)}
+.danger-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.danger-ctas a{font-size:14px;font-weight:700;padding:11px 20px;border-radius:999px;transition:transform .18s ease}
+.danger-ctas a:hover{transform:scale(1.04)}
+.cta-dark{background:var(--ink);color:#fff}
+.cta-line{border:1.5px solid var(--hair);color:var(--ink);background:var(--card)}
+.danger-note{margin-top:16px;text-align:center;font-size:12.5px;color:var(--sub)}
+.danger-note b{color:var(--danger);font-weight:700}
+.trust{margin-top:68px;display:flex;gap:18px;align-items:flex-start;background:var(--card);border-radius:calc(var(--r) + 6px);box-shadow:var(--shadow);padding:28px 30px}
+@media(max-width:640px){.trust{padding:22px 18px;flex-direction:column;gap:10px}}
+.trust .emoji{font-size:30px;flex:none}
+.trust b{display:block;font-size:16.5px;font-weight:700;margin-bottom:6px}
+.trust p{font-size:14px;color:var(--sub)}
+.guide-banner{background:linear-gradient(120deg,#EFEFFE,#F6E9FB 55%,#FFEDE6);border-radius:calc(var(--r) + 6px);padding:40px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
+@media(max-width:640px){.guide-banner{padding:28px 20px}}
+.guide-banner h2{font-size:clamp(20px,3vw,27px);font-weight:800;letter-spacing:-.01em;line-height:1.35}
+.guide-banner p{margin-top:6px;font-size:14.5px;color:var(--sub)}
+.guide-cta{flex:none;background:var(--ink);color:#fff;font-size:15px;font-weight:600;padding:13px 26px;border-radius:999px;transition:transform .2s ease;position:relative;z-index:1}
+.guide-cta:hover{transform:scale(1.03)}
+.guide-paw{position:absolute;right:110px;top:-30px;width:190px;height:190px;opacity:.14;pointer-events:none;transform:rotate(16deg)}
+@media(max-width:760px){.guide-paw{right:-30px}}
+footer.site{margin-top:84px;border-top:1px solid var(--hair);padding:36px 0 44px;text-align:center;font-size:13px;color:var(--sub);line-height:2}
+footer.site a{font-weight:600;color:var(--ink)}
+footer.site a:hover{color:var(--accent)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.rv.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-<header class="site"><div class="wrap">
-  <a class="logo" href="./"><span class="paw"></span>Mongnyang<span class="brand">Lab</span></a>
-  <nav class="top"><a href="./">Calculators</a><a href="guide">Pet Guide</a><a href="../">한국어</a></nav>
-</div></header>
-<div class="wrap">
-  <section class="hero">
-    <div class="paws"><span></span><span></span><span></span><span></span></div>
-      <div class="badge">Based on veterinary formulas · Free</div>
-      <h1>The right numbers for your pet,<br><em>in 30 seconds</em></h1>
-    <p>Dog & cat age, food portions, vaccines, and more — no sign-up, no install.</p>
-    <div class="hot">
-      <a href="chocolate-calculator">Chocolate toxicity</a>
-      <a href="dog-food-calculator">Food portion</a>
-      <a href="dog-age-calculator">Dog age</a>
-      <a href="food-guide">Foods to avoid</a>
-    </div>
-  </section>
-  <div class="sec-title">ALL CALCULATORS</div>
-  <div class="tools">
-    <a class="tool" href="dog-age-calculator"><div class="icon ic1"></div><div class="t">Dog Age Calculator</div><div class="d">Dog years to human years, by breed size</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="cat-age-calculator"><div class="icon ic2"></div><div class="t">Cat Age Calculator</div><div class="d">Your cat's real age in human years</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="dog-food-calculator"><div class="icon ic3"></div><div class="t">Dog Food Calculator</div><div class="d">Daily food portion by weight (RER/DER)</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="cat-food-calculator"><div class="icon ic4"></div><div class="t">Cat Food Calculator</div><div class="d">Daily portion using the RER/DER formula</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="dog-vaccine-calculator"><div class="icon ic5"></div><div class="t">Puppy Vaccination Schedule</div><div class="d">Enter birthday, get vaccine dates</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="cat-vaccine-calculator"><div class="icon ic6"></div><div class="t">Kitten Vaccination Schedule</div><div class="d">FVRCP, leukemia & rabies dates</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="chocolate-calculator"><div class="icon ic7"></div><div class="t">Chocolate Toxicity</div><div class="d">Is it an emergency? Check by amount</div><span class="go">Check →</span></a>
-    <a class="tool" href="cat-toxic-food-checker"><div class="icon ic8"></div><div class="t">Cat Toxic Food Checker</div><div class="d">Lilies, onion & more — risk level</div><span class="go">Check →</span></a>
-    <a class="tool" href="dog-toxic-food-checker"><div class="icon ic9"></div><div class="t">Dog Toxic Food Checker</div><div class="d">Grapes, xylitol, onion & more — risk level</div><span class="go">Check →</span></a>
-    <a class="tool" href="water-calculator"><div class="icon ic10"></div><div class="t">Daily Water Intake</div><div class="d">Healthy range & warning signs</div><span class="go">Calculate →</span></a>
-    <a class="tool" href="pregnancy-calculator"><div class="icon ic11"></div><div class="t">Pregnancy Due Date</div><div class="d">Expected due date from mating</div><span class="go">Calculate →</span></a>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="./">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-3.5 0-6.5-2.2-6.5-5 0-2.4 2.9-5.5 6.5-5.5s6.5 3.1 6.5 5.5c0 2.8-3 5-6.5 5Z" stroke="#FF5A3C" stroke-width="1.8"/><circle cx="5.5" cy="8.5" r="1.9" stroke="#1D1D1F" stroke-width="1.7"/><circle cx="18.5" cy="8.5" r="1.9" stroke="#1D1D1F" stroke-width="1.7"/><circle cx="9.3" cy="5" r="1.9" stroke="#1D1D1F" stroke-width="1.7"/><circle cx="14.7" cy="5" r="1.9" stroke="#1D1D1F" stroke-width="1.7"/></svg>
+      Mongnyang<span style="color:var(--accent)">Lab</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#all">Calculators</a>
+      <a href="food-guide">Toxic Foods</a>
+      <a href="guide">Pet Guide</a>
+      <a href="../">한국어</a>
+    </nav>
   </div>
-  <div class="trust">
+</header>
+
+<!-- HERO + LIVE CALCULATOR -->
+<section class="hero">
+  <span class="deco d1"><svg viewBox="0 0 24 24" fill="none" stroke="#FF5A3C" stroke-width="1.6"><path d="M12 21c-3 0-5.5-1.9-5.5-4.2 0-2 2.4-4.6 5.5-4.6s5.5 2.6 5.5 4.6C17.5 19.1 15 21 12 21Z"/><circle cx="6" cy="9" r="1.7"/><circle cx="18" cy="9" r="1.7"/><circle cx="9.5" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/></svg></span>
+  <span class="deco d2"><svg viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="1.6"><path d="M12 21c-3 0-5.5-1.9-5.5-4.2 0-2 2.4-4.6 5.5-4.6s5.5 2.6 5.5 4.6C17.5 19.1 15 21 12 21Z"/><circle cx="6" cy="9" r="1.7"/><circle cx="18" cy="9" r="1.7"/><circle cx="9.5" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/></svg></span>
+  <span class="deco d3"><svg viewBox="0 0 24 24" fill="none" stroke="#E22B8A" stroke-width="1.6"><path d="M12 21c-3 0-5.5-1.9-5.5-4.2 0-2 2.4-4.6 5.5-4.6s5.5 2.6 5.5 4.6C17.5 19.1 15 21 12 21Z"/><circle cx="6" cy="9" r="1.7"/><circle cx="18" cy="9" r="1.7"/><circle cx="9.5" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/></svg></span>
+  <span class="deco d4"><svg viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="1.6"><path d="M12 21c-3 0-5.5-1.9-5.5-4.2 0-2 2.4-4.6 5.5-4.6s5.5 2.6 5.5 4.6C17.5 19.1 15 21 12 21Z"/><circle cx="6" cy="9" r="1.7"/><circle cx="18" cy="9" r="1.7"/><circle cx="9.5" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/></svg></span>
+  <div class="wrap">
+    <div class="hero-badge rv">Based on veterinary formulas · Free</div>
+    <h1 class="rv">The right numbers for your pet,<br><em>in 30 seconds</em></h1>
+    <p class="rv hero-sub">Dog &amp; cat age, food portions, vaccines, and more — no sign-up, no install. Just enter a weight below.</p>
+
+    <div class="calc-card rv">
+      <div class="seg" role="group" aria-label="Choose pet">
+        <button id="btn-dog" aria-pressed="true">🐶 Dog</button>
+        <button id="btn-cat" aria-pressed="false">🐱 Cat</button>
+      </div>
+      <div class="calc-body">
+        <div>
+          <div class="field-label">Weight <span class="unit-toggle"><button id="u-kg" aria-pressed="false">kg</button><button id="u-lb" aria-pressed="true">lb</button></span></div>
+          <div class="weight-box">
+            <input id="weight" type="number" inputmode="decimal" min="0.1" max="260" step="0.1" value="9.2" aria-label="Weight">
+            <span id="unit-label">lb</span>
+          </div>
+          <div class="stage-chips" id="stages"></div>
+        </div>
+        <div>
+          <div class="field-label">Results</div>
+          <div class="results">
+            <div class="result">
+              <div class="result-num"><span id="r-food">0</span><small>g</small></div>
+              <div class="result-name">Food per day</div>
+            </div>
+            <div class="result">
+              <div class="result-num"><span id="r-der">0</span><small>kcal</small></div>
+              <div class="result-name">Daily energy</div>
+            </div>
+            <div class="result">
+              <div class="result-num"><span id="r-rer">0</span><small>kcal</small></div>
+              <div class="result-name">Resting energy</div>
+            </div>
+          </div>
+          <p class="calc-note">Reference values based on 3,600 kcal/kg food. Check your food label and ask your vet for exact portions.</p>
+        </div>
+      </div>
+      <div class="calc-more"><a id="calc-more-link" href="dog-food-calculator">Full food calculator →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- TOP 3 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-eyebrow">TOP 3</span>
+      <h2>Most-used calculators</h2>
+      <p>The three tools pet parents reach for first.</p>
+    </div>
+    <div class="feat rv" id="feat"></div>
+  </div>
+</section>
+
+<!-- ALL -->
+<section id="all">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sec-eyebrow">All 11</span>
+      <h2>All calculators</h2>
+      <p>Pick dog or cat above to highlight the right tools.</p>
+    </div>
+    <div class="all rv" id="all-list"></div>
+  </div>
+</section>
+
+<!-- TOXIC FOODS -->
+<section id="danger" class="danger-sec">
+  <div class="wrap">
+    <div class="danger-inner rv">
+      <div class="danger-head">
+        <h2>Foods your pet should <em>never</em> eat</h2>
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="danger-search" type="search" placeholder="Search a food — e.g. grapes" aria-label="Search toxic foods">
+        </div>
+      </div>
+      <div class="dgrid" id="dgrid"></div>
+      <button class="more" id="more">Show all 12</button>
+      <div class="danger-ctas">
+        <a class="cta-dark" href="food-guide">🚫 Full food guide</a>
+        <a class="cta-line" href="dog-toxic-food-checker">Dog toxic food checker</a>
+        <a class="cta-line" href="cat-toxic-food-checker">Cat toxic food checker</a>
+      </div>
+      <p class="danger-note">If you suspect your pet ate any of these, <b>call your vet immediately</b> or an emergency animal hospital.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="wrap">
+  <div class="trust rv">
     <div class="emoji">🩺</div>
     <div>
       <b>The feeding guide on the bag might be wrong for your pet</b>
       <p>Two pets of the same weight can need 30% different calories depending on age and spay/neuter status. Mongnyang Lab uses the RER/DER formulas vets actually use.</p>
     </div>
   </div>
-  <footer class="site">Results are for reference only and do not replace veterinary advice.<br><a href="./">Mongnyang Lab</a> · <a href="about">About</a> · <a href="contact">Contact</a> · <a href="privacy">Privacy</a> · <a href="../">한국어 버전</a> © 2026</footer>
 </div>
+
+<!-- GUIDE -->
+<section id="guide-sec">
+  <div class="wrap">
+    <div class="guide-banner rv">
+      <div>
+        <h2>Pet Guide</h2>
+        <p>From safe foods to vaccine schedules — evidence-based answers only.</p>
+      </div>
+      <a class="guide-cta" href="guide">Browse guides</a>
+      <svg class="guide-paw" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="1.2"><path d="M12 21c-3 0-5.5-1.9-5.5-4.2 0-2 2.4-4.6 5.5-4.6s5.5 2.6 5.5 4.6C17.5 19.1 15 21 12 21Z"/><circle cx="6" cy="9" r="1.7"/><circle cx="18" cy="9" r="1.7"/><circle cx="9.5" cy="5.8" r="1.7"/><circle cx="14.5" cy="5.8" r="1.7"/></svg>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    Results are for reference only and do not replace veterinary advice.<br>
+    <a href="./">Mongnyang Lab</a> © 2026 · <a href="guide">Pet Guide</a> · <a href="food-guide">Toxic Foods</a> · <a href="about">About</a> · <a href="contact">Contact</a> · <a href="privacy">Privacy</a> · <a href="../">한국어 버전</a>
+  </div>
+</footer>
+
+<script>
+var ICO = {
+  food:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><path d="M4 15c0 3 3.6 5.5 8 5.5s8-2.5 8-5.5-3.6-5.5-8-5.5S4 12 4 15Z"/><path d="M9 12.5v-2M15 12.5v-2"/></svg>',
+  age:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>',
+  vac:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><path d="m17 7 3-3M14 4l6 6M6.5 17.5 4 20M8 10l6 6M10 8l6 6M8 10l-3.5 3.5a3.2 3.2 0 0 0 0 4.5v0a3.2 3.2 0 0 0 4.5 0L12.5 14.5"/></svg>',
+  water:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><path d="M12 3.5S6 10 6 14.5a6 6 0 0 0 12 0C18 10 12 3.5 12 3.5Z"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><path d="M12 4 3 19.5h18L12 4Z" stroke-linejoin="round"/><path d="M12 10.5v4M12 17.2v.1"/></svg>',
+  preg:'<svg viewBox="0 0 24 24" fill="none" stroke="CUR" stroke-width="1.8" stroke-linecap="round"><path d="M12 20s-7-4.4-7-9.5A4.2 4.2 0 0 1 12 8a4.2 4.2 0 0 1 7 2.5C19 15.6 12 20 12 20Z" stroke-linejoin="round"/></svg>'
+};
+function ico(name, color){ return ICO[name].split('CUR').join(color); }
+
+var FEATURED = [
+  {ico:'food', c:'#F43F5E', bg:'linear-gradient(150deg,#FFF0EA,#FFE1DC)', link:'#E23A55',
+   name:{dog:'Dog Food Calculator', cat:'Cat Food Calculator'}, href:{dog:'dog-food-calculator', cat:'cat-food-calculator'},
+   desc:'Daily food portion in grams, using the RER/DER veterinary formula.'},
+  {ico:'age', c:'#6366F1', bg:'linear-gradient(150deg,#EFEFFE,#E2E1FC)', link:'#5558E3',
+   name:{dog:'Dog Age Calculator', cat:'Cat Age Calculator'}, href:{dog:'dog-age-calculator', cat:'cat-age-calculator'},
+   desc:'Your pet\'s age in human years, adjusted for size.'},
+  {ico:'vac', c:'#0D9488', bg:'linear-gradient(150deg,#E7F8F4,#D5F1EA)', link:'#0B7C72',
+   name:{dog:'Puppy Vaccination Schedule', cat:'Kitten Vaccination Schedule'}, href:{dog:'dog-vaccine-calculator', cat:'cat-vaccine-calculator'},
+   desc:'Enter a birthday and get the full vaccine date schedule.'}
+];
+var ALL = [
+  {ico:'food', c:'#F43F5E', bg:'#FFEDF0', name:'Dog Food Calculator', desc:'Daily food portion by weight (RER/DER)', href:'dog-food-calculator', tag:'dog'},
+  {ico:'food', c:'#F43F5E', bg:'#FFEDF0', name:'Cat Food Calculator', desc:'Daily portion using the RER/DER formula', href:'cat-food-calculator', tag:'cat'},
+  {ico:'age', c:'#6366F1', bg:'#EEEFFE', name:'Dog Age Calculator', desc:'Dog years to human years, by breed size', href:'dog-age-calculator', tag:'dog'},
+  {ico:'age', c:'#6366F1', bg:'#EEEFFE', name:'Cat Age Calculator', desc:'Your cat\'s real age in human years', href:'cat-age-calculator', tag:'cat'},
+  {ico:'water', c:'#0EA5E9', bg:'#E7F6FE', name:'Daily Water Intake', desc:'Healthy range & warning signs', href:'water-calculator', tag:'both'},
+  {ico:'vac', c:'#10B981', bg:'#E7FAF2', name:'Puppy Vaccination Schedule', desc:'Enter birthday, get vaccine dates', href:'dog-vaccine-calculator', tag:'dog'},
+  {ico:'vac', c:'#10B981', bg:'#E7FAF2', name:'Kitten Vaccination Schedule', desc:'FVRCP, leukemia & rabies dates', href:'cat-vaccine-calculator', tag:'cat'},
+  {ico:'warn', c:'#FF3B30', bg:'#FFECEA', name:'Chocolate Toxicity', desc:'Is it an emergency? Check by amount', href:'chocolate-calculator', tag:'dog'},
+  {ico:'warn', c:'#FF3B30', bg:'#FFECEA', name:'Dog Toxic Food Checker', desc:'Grapes, xylitol, onion & more — risk level', href:'dog-toxic-food-checker', tag:'dog'},
+  {ico:'warn', c:'#FF3B30', bg:'#FFECEA', name:'Cat Toxic Food Checker', desc:'Lilies, onion & more — risk level', href:'cat-toxic-food-checker', tag:'cat'},
+  {ico:'preg', c:'#C026D3', bg:'#FBEAFD', name:'Pregnancy Due Date', desc:'Expected due date from mating', href:'pregnancy-calculator', tag:'dog'}
+];
+var STAGES = {
+  dog:[["Puppy",3.0],["Adult",1.8],["Adult · neutered",1.6],["Senior",1.4]],
+  cat:[["Kitten",2.5],["Adult",1.4],["Adult · neutered",1.2],["Senior",1.1]]
+};
+var FOODS = [
+  {name:"Chocolate", sp:"Dogs · Cats", sev:"em", sym:"Theobromine poisoning — vomiting, abnormal heart rate, seizures. Darker chocolate is more dangerous.", extra:false},
+  {name:"Grapes & raisins", sp:"Dogs", sev:"em", sym:"Even small amounts can cause acute kidney failure. There is no known safe dose.", extra:false},
+  {name:"Xylitol", sp:"Dogs", sev:"em", sym:"Rapid hypoglycemia and liver damage. Common in sugar-free gum and candy.", extra:false},
+  {name:"Onion & garlic", sp:"Dogs · Cats", sev:"em", sym:"Destroys red blood cells and causes anemia — cooked or powdered forms too.", extra:false},
+  {name:"Lilies", sp:"Cats", sev:"em", sym:"Petals, leaves, pollen, even vase water can cause acute kidney failure. Go to a vet immediately.", extra:false},
+  {name:"Alcohol", sp:"Dogs · Cats", sev:"em", sym:"Central nervous system depression, hypothermia, slowed breathing. Even small amounts are dangerous.", extra:false},
+  {name:"Macadamia nuts", sp:"Dogs", sev:"hi", sym:"Weakness, vomiting, wobbly hind legs. Signs appear within 12 hours.", extra:true},
+  {name:"Caffeine", sp:"Dogs · Cats", sev:"hi", sym:"Coffee, energy drinks, green tea. Causes racing heart and tremors.", extra:true},
+  {name:"Avocado", sp:"Dogs · Cats", sev:"hi", sym:"Persin can cause vomiting and diarrhea. The pit is a choking/obstruction hazard.", extra:true},
+  {name:"Raw yeast dough", sp:"Dogs", sev:"hi", sym:"Expands in the stomach and produces alcohol — risk of bloat and poisoning.", extra:true},
+  {name:"Cooked bones", sp:"Dogs · Cats", sev:"md", sym:"Splinter easily — sharp fragments can injure the throat and gut.", extra:true},
+  {name:"Milk & dairy", sp:"Dogs · Cats", sev:"md", sym:"Most pets are lactose intolerant — diarrhea is common. Use pet-specific milk.", extra:true}
+];
+
+var species = "dog";
+var stageIdx = 1;
+var unit = "lb";
+var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var current = {rer:0, der:0, food:0};
+
+function fmt(n){ return n.toLocaleString("en-US"); }
+function animateTo(el, from, to){
+  if(reduced || from === to){ el.textContent = fmt(to); return; }
+  var start = performance.now(), dur = 450;
+  function frame(t){
+    var p = Math.min(1,(t-start)/dur);
+    p = 1 - Math.pow(1-p,3);
+    el.textContent = fmt(Math.round(from + (to-from)*p));
+    if(p < 1) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+}
+function calc(){
+  var w = parseFloat(document.getElementById("weight").value);
+  if(unit === "lb") w = w * 0.45359237;
+  var rer = 0, der = 0, food = 0;
+  if(w > 0 && w <= 120){
+    rer = Math.round(70 * Math.pow(w, 0.75));
+    der = Math.round(rer * STAGES[species][stageIdx][1]);
+    food = Math.round(der / 3600 * 1000);
+  }
+  animateTo(document.getElementById("r-rer"), current.rer, rer);
+  animateTo(document.getElementById("r-der"), current.der, der);
+  animateTo(document.getElementById("r-food"), current.food, food);
+  current = {rer:rer, der:der, food:food};
+}
+function renderStages(){
+  var box = document.getElementById("stages");
+  box.innerHTML = "";
+  STAGES[species].forEach(function(s, i){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = s[0];
+    b.setAttribute("aria-pressed", i === stageIdx ? "true" : "false");
+    b.addEventListener("click", function(){ stageIdx = i; renderStages(); calc(); });
+    box.appendChild(b);
+  });
+}
+function setSpecies(sp){
+  species = sp;
+  stageIdx = 1;
+  document.getElementById("btn-dog").setAttribute("aria-pressed", sp === "dog" ? "true" : "false");
+  document.getElementById("btn-cat").setAttribute("aria-pressed", sp === "cat" ? "true" : "false");
+  document.getElementById("calc-more-link").setAttribute("href", sp === "dog" ? "dog-food-calculator" : "cat-food-calculator");
+  renderStages(); renderFeat(); renderAll(); calc();
+}
+function setUnit(u){
+  if(u === unit) return;
+  var input = document.getElementById("weight");
+  var v = parseFloat(input.value);
+  if(v > 0){
+    input.value = (u === "lb" ? v / 0.45359237 : v * 0.45359237).toFixed(1);
+  }
+  unit = u;
+  document.getElementById("u-kg").setAttribute("aria-pressed", u === "kg" ? "true" : "false");
+  document.getElementById("u-lb").setAttribute("aria-pressed", u === "lb" ? "true" : "false");
+  document.getElementById("unit-label").textContent = u;
+  calc();
+}
+document.getElementById("btn-dog").addEventListener("click", function(){ setSpecies("dog"); });
+document.getElementById("btn-cat").addEventListener("click", function(){ setSpecies("cat"); });
+document.getElementById("u-kg").addEventListener("click", function(){ setUnit("kg"); });
+document.getElementById("u-lb").addEventListener("click", function(){ setUnit("lb"); });
+document.getElementById("weight").addEventListener("input", calc);
+
+function renderFeat(){
+  var box = document.getElementById("feat");
+  box.innerHTML = "";
+  FEATURED.forEach(function(f){
+    var a = document.createElement("a");
+    a.href = f.href[species];
+    a.className = "feat-card";
+    a.style.background = f.bg;
+    a.innerHTML =
+      '<div class="feat-ico">' + ico(f.ico, f.c) + '</div>' +
+      '<h3>' + f.name[species] + '</h3><p>' + f.desc + '</p>' +
+      '<span class="go" style="color:' + f.link + '">Calculate →</span>';
+    box.appendChild(a);
+  });
+}
+function renderAll(){
+  var box = document.getElementById("all-list");
+  box.innerHTML = "";
+  ALL.forEach(function(c){
+    var a = document.createElement("a");
+    a.href = c.href;
+    a.className = "row";
+    if(c.tag !== "both" && c.tag !== species) a.classList.add("dim");
+    a.innerHTML =
+      '<span class="row-ico" style="background:' + c.bg + '">' + ico(c.ico, c.c) + '</span>' +
+      '<span class="row-main"><b>' + c.name + '</b><span>' + c.desc + '</span></span>' +
+      '<span class="row-chev">›</span>';
+    box.appendChild(a);
+  });
+}
+function renderFoods(){
+  var grid = document.getElementById("dgrid");
+  grid.innerHTML = "";
+  var sevName = {em:"Emergency", hi:"Danger", md:"Caution"};
+  FOODS.forEach(function(f){
+    var d = document.createElement("div");
+    d.className = "dcard" + (f.extra ? " hidden-extra" : "");
+    d.setAttribute("data-name", f.name.toLowerCase());
+    d.setAttribute("data-sev", f.sev);
+    d.innerHTML =
+      '<div class="dcard-top"><b>' + f.name + '</b><span class="sev ' + f.sev + '">' + sevName[f.sev] + '</span></div>' +
+      '<span class="dcard-sp">' + f.sp + '</span>' +
+      '<p class="dcard-sym">' + f.sym + '</p>';
+    grid.appendChild(d);
+  });
+}
+
+var manualExpand = false;
+document.getElementById("more").addEventListener("click", function(){
+  var sec = document.querySelector(".danger-sec");
+  manualExpand = sec.classList.toggle("expanded");
+  this.textContent = manualExpand ? "Show less" : "Show all 12";
+});
+document.getElementById("danger-search").addEventListener("input", function(){
+  var q = this.value.trim().toLowerCase();
+  var sec = document.querySelector(".danger-sec");
+  if(q) sec.classList.add("expanded");
+  else if(!manualExpand) sec.classList.remove("expanded");
+  document.querySelectorAll(".dcard").forEach(function(c){
+    var hit = !q || c.getAttribute("data-name").indexOf(q) > -1;
+    c.classList.toggle("search-hide", !hit);
+  });
+  document.getElementById("more").style.display = q ? "none" : "block";
+});
+
+(function(){
+  var els = document.querySelectorAll(".rv");
+  if(reduced || !("IntersectionObserver" in window)){
+    els.forEach(function(e){ e.classList.add("on"); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add("on"); io.unobserve(en.target); }
+    });
+  }, {threshold:.08});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+renderStages(); renderFeat(); renderAll(); renderFoods(); calc();
+</script>
 </body>
 </html>
