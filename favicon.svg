@@ -1,15 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f261a8"/>
-      <stop offset="1" stop-color="#9d7bf5"/>
+      <stop offset="0" stop-color="#FF7A45"/>
+      <stop offset=".55" stop-color="#FF4D4D"/>
+      <stop offset="1" stop-color="#E22B8A"/>
     </linearGradient>
+    <radialGradient id="hl" cx=".3" cy=".15" r=".9">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".28"/>
+      <stop offset=".55" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
   </defs>
   <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <rect width="64" height="64" rx="15" fill="url(#hl)"/>
   <g fill="#ffffff">
-    <ellipse cx="32" cy="41" rx="12.5" ry="9.5"/>
-    <circle cx="17.5" cy="28" r="5.6"/>
-    <circle cx="32" cy="23.5" r="6"/>
-    <circle cx="46.5" cy="28" r="5.6"/>
+    <path d="M32 51c-7.4 0-13-4.1-13-9.3 0-5.8 6.1-11.2 13-11.2s13 5.4 13 11.2C45 46.9 39.4 51 32 51Z"/>
+    <circle cx="14.5" cy="26.5" r="5.2"/>
+    <circle cx="25" cy="18.5" r="5.4"/>
+    <circle cx="39" cy="18.5" r="5.4"/>
+    <circle cx="49.5" cy="26.5" r="5.2"/>
   </g>
 </svg>
